@@ -5,13 +5,13 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
-	<include file="application.xml"/>
+	<include file="xml/uc3Control.xml"/>
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<action name="index">
 			<result type="redirectAction">
 				<param name="actionName">accueil</param>
-				<param name="namespace">/vue</param>
+				<param name="namespace">/uc3</param>
 			</result>
 		</action>
 		

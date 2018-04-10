@@ -4,7 +4,7 @@
 	<nav>
 
 	<button class="tablink" onclick="openPage('accueil', this, 'red')" >Accueil</button>
-	<button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>
+	<button class="tablink" onclick="openPage('connexion', this, 'green')" >Connexion</button>
 	<button class="tablink" onclick="openPage('ingredients', this, 'blue')" >Ingredients</button>
 	<button class="tablink" onclick="openPage('parleApresMoi', this, 'orange')" >Parle après moi</button> 
 	<button class="tablink" onclick="openPage('gererLaBase', this, 'orange')" >Gérer la base</button>
@@ -51,7 +51,7 @@
 		  <br>
 		  <span>
 		  	Pour continuer,
-		  	<s:a class="btn btn-success" namespace="/vue" action="accueil">veuillez cliquer ici</s:a>
+		  	<s:a class="btn btn-success" namespace="/uc3" action="formulaire">veuillez cliquer ici</s:a>
 		  </span>
 		</div>
 		

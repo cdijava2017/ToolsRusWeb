@@ -4,17 +4,18 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>exo2Biblio</title>
-<link href="<%=request.getContextPath()%>/css/biblio.css" rel="stylesheet" type="text/css" />
+	<meta charset="UTF-8">
+	<title>ToolsRuS</title>		
+	<link rel="stylesheet" type="text/css "	href="<%=request.getContextPath()%>/style/Menu.css" />
+	<link rel="stylesheet" type="text/css "	href="<%=request.getContextPath()%>/style/bootstrap.min.css" />
 </head>
 <body>
 
+	<h1 style="text-align:center;">Accueil principal ToolsRuS !</h1>
+	
+	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
 
-	<h1>Accueil principal exo2Biblio !</h1>
-	<br></br>
-	<h1><s:a namespace="/vue" action="afficheMsg">vers AfficheMessage</s:a></h1>
 	
 </body>
 </html>

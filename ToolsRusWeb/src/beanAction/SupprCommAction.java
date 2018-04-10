@@ -7,36 +7,36 @@ import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
 
-public class CreationAuteurAction extends ApplicationSupport {
+public class SupprCommAction extends ApplicationSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private IFacade iFacade;
+	private IFacade interfaceFacade;
 	private Context initialContext;
 
 	public Commentaire commentaire;
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println("méthode execute() CreationBeanAction");
-		System.out.println("commentaire : " + commentaire);
-		iFacade.addCommentaire(commentaire);
+		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
+		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
+		interfaceFacade.supCommParId(commentaire);
+		commentaire = null;
 		return SUCCESS;
 	}
 
-	public CreationAuteurAction() throws UserException {
+	public SupprCommAction() throws UserException {
 		try {
-			System.out.println("connexion au lookup...");
 			initialContext = new InitialContext();
-			iFacade  = (IFacade) initialContext.lookup("ejb:/ToolsRusServer/clientServer!clientServer.IServiceFacade");
-			System.out.println("connexion lookup réussie");
+			interfaceFacade = (IFacade) initialContext.lookup("ejb:/ToolsRusServer/Facade!clientServer.IFacade");
+			System.out.println("***** Nacer SupprCommAction() : connexion lookup réussie");
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}		    	
 	}
 
-	public Commentaire getAuteur() { return commentaire; }
+	public Commentaire getCommentaire() { return commentaire; }
 
 	public void setCommentaire(Commentaire commentaire) {
 		this.commentaire = commentaire;
@@ -45,6 +45,5 @@ public class CreationAuteurAction extends ApplicationSupport {
 
 
 }
-
 
 
