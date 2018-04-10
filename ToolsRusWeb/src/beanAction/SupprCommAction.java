@@ -6,6 +6,7 @@ import javax.naming.InitialContext;
 import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
+import entity.uc3_Donner1Avis.titre.Titre;
 
 public class SupprCommAction extends ApplicationSupport {
 
@@ -15,13 +16,17 @@ public class SupprCommAction extends ApplicationSupport {
 	private Context initialContext;
 
 	public Commentaire commentaire;
+	public Titre titre;
 
 	@Override
 	public String execute() throws Exception {
 		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
+		titre.setIdTitre(commentaire.getIdComm());
+		commentaire.setTitre(titre);
 		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
 		interfaceFacade.supCommParId(commentaire);
 		commentaire = null;
+		titre = null;
 		return SUCCESS;
 	}
 

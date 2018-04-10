@@ -15,24 +15,22 @@
 	
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
-	<s:url namespace="/uc3" action="CreerComm" 	var="creaComm" />
-	<s:url namespace="/uc3" action="ModifComm"	var="modifComm" />
-	<s:url namespace="/uc3" action="SupprComm" 	var="supprComm" />
+	<s:url namespace="/uc3" action="creationFormComm" 		var="creaComm"  />
+	<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" />
+	<s:url namespace="/uc3" action="suppressionFormComm" 	var="supprComm" />
 
 	<br>
 
 	
 	<s:form namespace="" action="" method="post">
 		<s:actionerror />
-		<s:textfield name="commentaire.idComm" 		label="L'id du commentaire " />
-		<s:textfield name="commentaire.texteComm" 	label="Votre commentaire " />
- 		<div>
-			<span>
-				<s:submit class="btn btn-success" value="creation" formaction="${creaComm}" />
-				<s:submit class="btn btn-success" value="modification" formaction="${modifComm}" />
-				<s:submit class="btn btn-success" value="suppression" formaction="${supprComm}" />
-			</span>
-		</div>
+		<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  />
+		<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " />
+		<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   />
+		
+   		<s:submit class="btn btn-success" name="choix" value="creation" 	formaction="${creaComm}"  />
+   		<s:submit class="btn btn-success" name="choix" value="modification" formaction="${modifComm}" />    			
+		<s:submit class="btn btn-success" name="choix" value="suppression" 	formaction="${supprComm}" />	        
 	</s:form>
 
 

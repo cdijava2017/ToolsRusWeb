@@ -6,6 +6,7 @@ import javax.naming.InitialContext;
 import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
+import entity.uc3_Donner1Avis.titre.Titre;
 
 public class CreationCommAction extends ApplicationSupport {
 
@@ -15,13 +16,17 @@ public class CreationCommAction extends ApplicationSupport {
 	private Context initialContext;
 
 	public Commentaire commentaire;
+	public Titre titre;
 
 	@Override
 	public String execute() throws Exception {
 		System.out.println("***** Nacer execute(): méthode execute() CreationBeanAction");
+		titre.setIdTitre(commentaire.getIdComm());
+		commentaire.setTitre(titre);
 		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
 		interfaceFacade.addCommentaire(commentaire);
 		commentaire = null;
+		titre = null;
 		return SUCCESS;
 	}
 
@@ -41,7 +46,12 @@ public class CreationCommAction extends ApplicationSupport {
 	public void setCommentaire(Commentaire commentaire) {
 		this.commentaire = commentaire;
 	}
+	
+	public Titre getTitre() { return titre; }
 
+	public void setTitre(Titre titre) {
+		this.titre = titre;
+	}
 
 
 }
