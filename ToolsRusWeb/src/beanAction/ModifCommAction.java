@@ -24,6 +24,7 @@ public class ModifCommAction extends ApplicationSupport {
 		commentaire = null;
 		return SUCCESS;
 	}
+	
 
 	public ModifCommAction() throws UserException {
 		try {
