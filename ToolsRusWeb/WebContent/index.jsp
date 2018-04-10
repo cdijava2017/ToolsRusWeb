@@ -3,10 +3,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<link rel="stylesheet" type="text/css "
+	href="<%=request.getContextPath()%>/style/Menu.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Accueil ToolsRuS</title>
 </head>
 <body>
-test affichage accueil
+
+	<h1>Accueil Principal</h1>
+
+	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
+
+
 </body>
 </html>
