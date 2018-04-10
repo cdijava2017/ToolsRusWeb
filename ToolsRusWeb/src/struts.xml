@@ -9,11 +9,12 @@
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<action name="index">
-			<result>/index.jsp</result>
-			<!-- <result type="redirectAction">
+			<result type="redirectAction">
 				<param name="actionName">accueil</param>
-				<param name="namespace">/vue</param> 
-			</result>  -->
+				<param name="namespace">/vue</param>
+			</result>
 		</action>
+		
+		
 	</package>
 </struts>

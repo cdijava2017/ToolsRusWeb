@@ -1,4 +1,4 @@
-
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <header>
 
 	<nav>
@@ -45,7 +45,14 @@
 		
 		<div id="commentaire" class="tabcontent">
 		  <h3>Commentaire</h3>
-		  <p>Mettre un descriptif</p>
+		  <p>Cette partie renvoie vers la partie de l'UC3 - Donner son avis (Commenter).</p>
+		  <p>Nous allons pouvoir tester la création d'un commentaire, lui donner un titre et nous pourrons aussi liker et/ou disliker ce commentaire.</p>
+		  <p>Les différents commentaires vont s'afficher sous forme de fil de discution.</p>
+		  <br>
+		  <span>
+		  	Pour continuer,
+		  	<s:a class="btn btn-success" namespace="/vue" action="accueil">veuillez cliquer ici</s:a>
+		  </span>
 		</div>
 		
 		<div id="passeAuTableau" class="tabcontent">
