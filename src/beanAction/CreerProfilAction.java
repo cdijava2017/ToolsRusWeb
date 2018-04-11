@@ -11,7 +11,7 @@ public class CreerProfilAction extends ApplicationSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Profil profil;
+	private Profil creerProfil;
 
 	private int id;
 	private String nom;
@@ -31,8 +31,8 @@ public class CreerProfilAction extends ApplicationSupport {
 		user = new User(id, pseudo, pw);
 		role = new Participant(id, false);
 
-		profil = new Profil(id, nom, prenom, email, user, role);
-		System.out.println("CreerProfilAction  - profil : " + profil);
+		creerProfil = new Profil(id, nom, prenom, email, user, role);
+		System.out.println("CreerProfilAction  - profil : " + creerProfil);
 
 		return SUCCESS;
 	}
@@ -78,11 +78,11 @@ public class CreerProfilAction extends ApplicationSupport {
 	}
 
 	public Profil getProfil() {
-		return profil;
+		return creerProfil;
 	}
 
 	public void setProfil(Profil profil) {
-		this.profil = profil;
+		this.creerProfil = profil;
 	}
 
 	public String getNom() {

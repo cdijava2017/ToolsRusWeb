@@ -30,6 +30,6 @@
 	</s:form>
 
 
-	<s:a namespace="/gestionAcces" action="accueilGestion">Connexion</s:a>
+	<!--<s:a namespace="/gestionAcces" action="accueilGestion">Connexion</s:a>-->
 </body>
 </html>

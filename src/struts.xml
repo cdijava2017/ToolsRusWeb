@@ -7,7 +7,9 @@
 		value="false" />
 	<constant name="struts.devMode" value="true" />
 	<!-- < include file="application.xml" />-->
-	<include file="./uc5_GestionAcces/uc5.xml" />
+	
+	<include file="/xml/uc5.xml" />
+	
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<action name="index">
