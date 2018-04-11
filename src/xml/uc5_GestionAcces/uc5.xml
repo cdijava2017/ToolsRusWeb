@@ -4,8 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<package name="uc5" namespace="/gestionAcces" extends="struts-default">
-		<action name="creProfil" 			class="beanAction.CreerProfil">>
-			<result>/vue/index.jsp</result>
+		<action name="accueilGestion">		
+			<result>/vue/gestionAcces/index.jsp</result>
+		</action>
+	  	<action name="creerProfil" 			class="beanAction.CreerProfilAction">>
+			<result>/index.jsp</result>
 		</action>
 	</package>
 </struts>
