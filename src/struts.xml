@@ -3,20 +3,21 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
 "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation"
-		value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
-	<!-- < include file="application.xml" />-->
+	<include file="xml/uc3Control.xml"/>
 	
 	<include file="/xml/uc5.xml" />
 	
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<action name="index">
-			<result>/index.jsp</result>
-
-				<!--<param name="actionName">accueil</param>
-				<param name="namespace">/vue</param>-->
+			<result type="redirectAction">
+				<param name="actionName">accueil</param>
+				 <param name="namespace">/uc3</param>
+				<param name="namespace">/gestionAcces</param>
+			</result>
 		</action>
+		
 	</package>
 </struts>

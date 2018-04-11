@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<package name="uc3Control" namespace="/uc3" extends="struts-default">
+		
+		<action name="accueil">
+			<result>/vue/UC3/index.jsp</result>
+		</action>
+
+	 	<action name="formulaire">
+			<result>/vue/UC3/formulaire.jsp</result>
+		</action>
+<!--				
+		<action name="CreerComm" class="beanAction.CreationCommAction">
+			<result>/vue/UC3/formulaire.jsp</result>
+		</action>
+						
+		<action name="ModifComm" class="beanAction.ModifCommAction">
+			<result>/vue/UC3/formulaire.jsp</result>
+		</action>
+						
+		<action name="SupprComm" class="beanAction.SupprCommAction">
+			<result>/vue/UC3/formulaire.jsp</result>
+		</action>
+		-->
+		<action name="*FormComm" method="{1}" class="beanAction.CRUDCommAction">
+			<result name="success">/vue/UC3/formulaire.jsp</result>
+<!-- 		<result name="modification">/vue/biblio/formAuteur.jsp</result>
+			<result name="suppression">/vue/biblio/formAuteur.jsp</result> -->	
+			<allowed-methods>creation, modification, suppression</allowed-methods>
+		</action>
+		
+<!--
+		<action name="TODO">
+			<result>/vue/todo.jsp</result>
+		</action>
+				
+		<action name="RecupAuteur" class="beanAction.RecupAuteur">
+			<result>/vue/biblio/formAuteur.jsp</result>
+		</action>
+
+		<action name="accueilBiblio">
+			<result type="redirectAction">
+				<param name="actionName">Biblio</param>
+				<param name="namespace">/biblio</param>
+			</result>
+		</action>
+		
+		<action name="accueilPerso">
+			<result type="redirectAction">
+				<param name="actionName">Perso</param>
+				<param name="namespace">/perso</param>
+			</result>
+		</action>
+ -->
+	</package>
+</struts>

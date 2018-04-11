@@ -1,10 +1,11 @@
-
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <header>
 
 	<nav>
 
-	<button class="tablink" onclick="openPage('accueil', this, 'red')" >Accueil</button>
-	<button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>
+	<button class="tablink" onclick="openPage('accueil', this, 'red')" >Accueil</button>	
+	<!--  <button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>-->
+	<button class="tablink" onclick="openPage('connexion', this, 'green')">Connexion</button>
 	<button class="tablink" onclick="openPage('ingredients', this, 'blue')" >Ingredients</button>
 	<button class="tablink" onclick="openPage('parleApresMoi', this, 'orange')" >Parle après moi</button> 
 	<button class="tablink" onclick="openPage('gererLaBase', this, 'orange')" >Gérer la base</button>
@@ -20,7 +21,12 @@
 		
 		<div id="connexion" class="tabcontent">
 		  <h3>Connexion</h3>
-		  <p>Mettre un descriptif</p> 
+		  <p>on va gerer la creation et l'identififcation d'un user		  
+		  <p>-</p> 
+		  <br>
+		  
+		  <s:a class="btn btn-success" namespace="/gestionAcces" action="formulaireGestAcces">Inscription</s:a>
+		  <s:a class="btn btn-success" namespace="/gestionAcces" action="connexion">Connexion</s:a>
 		</div>
 		
 		<div id="ingredients" class="tabcontent">
@@ -45,7 +51,14 @@
 		
 		<div id="commentaire" class="tabcontent">
 		  <h3>Commentaire</h3>
-		  <p>Mettre un descriptif</p>
+		  <p>Cette partie renvoie vers la partie de l'UC3 - Donner son avis (Commenter).</p>
+		  <p>Nous allons pouvoir tester la création d'un commentaire, lui donner un titre et nous pourrons aussi liker et/ou disliker ce commentaire.</p>
+		  <p>Les différents commentaires vont s'afficher sous forme de fil de discution.</p>
+		  <br>
+		  <span>
+		  	Pour continuer,
+		  	<s:a class="btn btn-success" namespace="/uc3" action="formulaire">veuillez cliquer ici</s:a>
+		  </span>
 		</div>
 		
 		<div id="passeAuTableau" class="tabcontent">

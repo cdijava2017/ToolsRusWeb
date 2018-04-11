@@ -3,13 +3,29 @@
 "-//Apache Software Foundation//DTD StrutsConfiguration 2.5//EN"
 "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<package name="uc5" namespace="/gestionAcces" extends="struts-default">
-	
-	  	<action name="creerProfil" 			class="beanAction.CreerProfilAction">
-			<result>/index.jsp</result>
+	<package name="uc5" namespace="/gestionAcces"
+		extends="struts-default">
+		<!-- Point d'accueil racine de vue -->
+		<action name="accueil">
+			<result>/vue/index.jsp</result>
 		</action>
-		<!-- <action name="accueilGestion">		
-			<result>/vue/gestionAcces/index.jsp</result>
-		</action> -->
+		
+		<!-- Affche le formulaire d'inscription -->
+		<action name="formulaireGestAcces">
+			<result>/vue/gestionAcces/formInscription.jsp</result>
+		</action>
+		
+		<!-- Affche le page dee connexion -->
+		<action name="connexion">
+			<result>/vue/gestionAcces/connexion.jsp</result>
+		</action>
+
+<!-- btn de validation du formulaire d'inscription -->
+		<action name="creerProfil" class="beanAction.gestionAcces.CreerProfilAction">
+			<result>/vue/gestionAcces/formInscription.jsp</result>
+		</action>
+		<!-- retour accueil -->
+		 <action name="accueilGestion"> <result>/vue/index.jsp</result> 
+			</action> 
 	</package>
 </struts>

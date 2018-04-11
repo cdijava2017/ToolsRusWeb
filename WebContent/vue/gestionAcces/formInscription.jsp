@@ -1,23 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html lang="fr">
 <head>
+<meta charset="UTF-8">
+<title>ToolsRuS</title>
+
 <link rel="stylesheet" type="text/css "
 	href="<%=request.getContextPath()%>/style/Menu.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Accueil ToolsRuS</title>
+<link rel="stylesheet" type="text/css "
+	href="<%=request.getContextPath()%>/style/bootstrap.min.css" />
 </head>
-<body>
 
+<body>
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
-	
+
+
 	<h1>Formulaire d'inscription</h1>
 	<br>
 	<s:form namespace="/gestionAcces" action="creerProfil" method="post"
 		validate="false">
-		
+
 		<s:textfield name="nom" label="nom" />
 		<s:textfield name="prenom" label="prenom " />
 		<s:textfield name="email" label="email" />
@@ -29,7 +33,8 @@
 		</s:submit>
 	</s:form>
 
-
-	<!--<s:a namespace="/gestionAcces" action="accueilGestion">Connexion</s:a>-->
+<br>
+	<s:a namespace="/gestionAcces" action="accueilGestion">Accueil</s:a>
+	<script src="<%=request.getContextPath()%>/script/gestionAcces/scriptMenu.js"></script>
 </body>
 </html>

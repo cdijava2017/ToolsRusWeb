@@ -1,5 +1,6 @@
-package beanAction;
+package beanAction.gestionAcces;
 
+import beanAction.ApplicationSupport;
 import entity.gestionAcces.Participant;
 import entity.gestionAcces.Profil;
 import entity.gestionAcces.Role;
@@ -23,7 +24,12 @@ public class CreerProfilAction extends ApplicationSupport {
 	private String pw;
 
 	private Role role;
-
+/**
+ * On va creer un PROFIL a partir des donnees recuperer des champs saisies
+ * et de meme creer son USER
+ * Selon le cahier des charges  tout nouveau inscript est automatique attribue au  ROLE  de PARTICIPANT
+ * qu'il pourra modifié plus tard son role s'il le veut plus
+ */
 	@Override
 	public String execute() throws Exception {
 		System.out.println("CreerProfilAction " + nom + "," + prenom + "," + email + "," +pseudo + "," +pw);
