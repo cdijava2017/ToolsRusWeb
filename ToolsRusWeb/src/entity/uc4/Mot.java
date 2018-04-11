@@ -1,0 +1,105 @@
+package entity.uc4;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+/**
+ * class Mot have an association with class Image
+ * class Mot knows her Image wich associate
+ * inheritance for class MotHumeur and Theme: one table by concrete class
+ * @author iceman
+ *
+ */
+
+@Entity
+@Table(name="Mot")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public /*abstract*/ class Mot implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="idmot", nullable=false)
+	private int 	idMot;
+	
+	@Column(name="libellemot", length=50, nullable=true)
+	private String 	libelleMot;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="idImage", unique=true, nullable=true)
+	private Image 	image;
+	
+//	@ManyToMany()
+//	this relation could be analysed this way: a word can contain many words, like a compound word:
+//	court-circuit is the association of the word "court" and the word "circuit".
+//	TODO
+	
+	
+	
+	//constructor
+	public Mot(int idMot, String libelleMot, Image image) {
+		super();
+		this.idMot = idMot;
+		this.libelleMot = libelleMot;
+		this.image = image;
+	}
+	
+	//constructor for the classes which inheritence, like class MotHumeur or Theme
+	public Mot(int idMot, String libelleMot) {
+		super();
+		this.idMot = idMot;
+		this.libelleMot = libelleMot;
+		
+	}
+
+
+	public int getIdMot() {
+		return idMot;
+	}
+
+
+	public void setIdMot(int idMot) {
+		this.idMot = idMot;
+	}
+
+
+	public String getLibelleMot() {
+		return libelleMot;
+	}
+
+
+	public void setLibelleMot(String libelleMot) {
+		this.libelleMot = libelleMot;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+
+	@Override
+	public String toString() {
+		return "identifiant du Mot= (" + idMot + ", libelle du Mot=" + libelleMot + ")";
+	}
+	
+
+}
