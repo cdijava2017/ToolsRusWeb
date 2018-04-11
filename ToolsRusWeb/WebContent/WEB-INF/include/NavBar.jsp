@@ -49,10 +49,14 @@
 		  <p>Nous allons pouvoir tester la création d'un commentaire, lui donner un titre et nous pourrons aussi liker et/ou disliker ce commentaire.</p>
 		  <p>Les différents commentaires vont s'afficher sous forme de fil de discution.</p>
 		  <br>
-		  <span>
-		  	Pour continuer,
+		  <div>
+		  	Pour créer, modifier ou supprimer un commentaire, 
 		  	<s:a class="btn btn-success" namespace="/uc3" action="formulaire">veuillez cliquer ici</s:a>
-		  </span>
+		  </div>
+		  <div>
+		  	Pour lister les commentaires, 
+		  	<s:a class="btn btn-success" namespace="/uc3" action="listerCommentaires">veuillez cliquer ici</s:a>
+		  </div>
 		</div>
 		
 		<div id="passeAuTableau" class="tabcontent">

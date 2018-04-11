@@ -9,12 +9,13 @@ import javax.naming.InitialContext;
 import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
+import entity.uc3_Donner1Avis.commentaire.Commentaires;
 import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.compteur.CptDislike;
 import entity.uc3_Donner1Avis.compteur.CptLike;
 import entity.uc3_Donner1Avis.titre.Titre;
 
-public class CRUDCommAction extends ApplicationSupport {
+public class ListerCommAction extends ApplicationSupport {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,18 +23,21 @@ public class CRUDCommAction extends ApplicationSupport {
 	private Context initialContext;
 
 	public Commentaire commentaire;
+	private ArrayList<Commentaire> listeCommentaires;
 	public Titre titre;
-	private ArrayList<Compteur> listeCompteurs;
+	private Collection<Compteur> listeCompteurs;
 	private Compteur cptDislike;
 	private Compteur cptLike;
+	
 
 	@Override
 	public String execute() throws Exception {
 		System.out.println("méthode execute()");
+		lister();
 		return SUCCESS;
 	}
 
-	public CRUDCommAction() throws UserException {
+	public ListerCommAction() throws UserException {
 		try {
 			initialContext = new InitialContext();
 			interfaceFacade = (IFacade) initialContext.lookup("ejb:/ToolsRusServer/Facade!clientServer.IFacade");
@@ -44,35 +48,9 @@ public class CRUDCommAction extends ApplicationSupport {
 		}		    	
 	}
 
-	public String creation() throws Exception {
-		System.out.println("***** Nacer execute(): méthode creation() CRUDCommAction");
-		titre.setIdTitre(commentaire.getIdComm());
-		commentaire.setTitre(titre);
-		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
-		interfaceFacade.addCommentaire(commentaire);
-		commentaire = null;
-		titre = null;
-		listeCompteurs = null;
-		return SUCCESS;
-	}
-	public String modification() throws Exception {
-		System.out.println("***** Nacer execute(): méthode modification() CRUDCommAction");
-		titre.setIdTitre(commentaire.getIdComm());
-		commentaire.setTitre(titre);
-		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
-		interfaceFacade.modifCommentaire(commentaire);
-		commentaire = null;
-		titre = null;
-		return SUCCESS;
-	}
-	public String suppression() throws Exception {
-		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
-		titre.setIdTitre(commentaire.getIdComm());
-		commentaire.setTitre(titre);
-		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
-		interfaceFacade.supCommParId(commentaire);
-		commentaire = null;
-		titre = null;
+	public String lister() throws Exception {
+		System.out.println("***** Nacer execute(): méthode creation() ListerCommAction");
+		setListeCommentaires(interfaceFacade.getAllCommParId());
 		return SUCCESS;
 	}
 	
@@ -85,8 +63,8 @@ public class CRUDCommAction extends ApplicationSupport {
 	public void setTitre(Titre titre) {
 		this.titre = titre;
 	}
-
-	public ArrayList<Compteur> getListeCompteurs() { return listeCompteurs;	}
+	
+	public Collection<Compteur> getListeCompteurs() { return listeCompteurs;	}
 	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
 		this.listeCompteurs = compteurs;
 	}
@@ -103,6 +81,12 @@ public class CRUDCommAction extends ApplicationSupport {
 	public void setCptLike(Compteur cptLike) {
 		this.cptLike = cptLike;
 	}
+
+	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
+	public void setListeCommentaires(Commentaires listeCommentaires) {
+		this.listeCommentaires = listeCommentaires;
+	}
+
 
 }
 

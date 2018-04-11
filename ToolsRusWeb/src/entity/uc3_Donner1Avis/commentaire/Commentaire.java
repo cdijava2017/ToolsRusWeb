@@ -3,8 +3,6 @@ package entity.uc3_Donner1Avis.commentaire;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-
 
 import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.compteur.CptDislike;
@@ -26,13 +24,15 @@ public class Commentaire implements Serializable, ICommentable {
 	private int idComm;
 	private String  texteComm;
 	private Titre titre;
-	private Collection<Compteur> listeCompteurs = null;
+	private ArrayList<Compteur> listeCompteurs = null;
 
 
 	/**
 	 * Constructeur vide par défaut
 	 */
-	public Commentaire() {}
+	public Commentaire() {
+		this.listeCompteurs = new ArrayList<Compteur>();
+	}
 	/**
 	 *  Constructeur standard avec @param idComm et @param texteComm. 
 	 */
@@ -59,7 +59,8 @@ public class Commentaire implements Serializable, ICommentable {
 		this.idComm = idComm;
 		this.texteComm = texteComm;
 		this.titre = titre;
-		this.listeCompteurs = new ArrayList<Compteur>();
+		if (compteurs != null) this.listeCompteurs = compteurs;
+		else this.listeCompteurs = new ArrayList<Compteur>();
 	}
 
 
@@ -84,16 +85,15 @@ public class Commentaire implements Serializable, ICommentable {
 		this.titre = titre;
 	}
 
-	public Collection<Compteur> getCompteurs() {
+	public ArrayList<Compteur> getListeCompteurs() {
 		return listeCompteurs;
 	}
-	public void setCompteurs(ArrayList<Compteur> compteurs) {
+	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
 		this.listeCompteurs = compteurs;
 	}
 	public void addCompteur(Compteur compteur) {
 		this.listeCompteurs.add(compteur);
 	}
-
 
 	@Override
 	public String toString() {
@@ -119,17 +119,33 @@ public class Commentaire implements Serializable, ICommentable {
 		}		
 	}
 	
+	public Compteur getCptDislike() {
+		CptDislike cptDislike = null;
+		for (Compteur cpt : listeCompteurs) {
+			if (cpt instanceof CptDislike) cptDislike = (CptDislike) cpt;
+		}		
+		return cptDislike;
+	}
+	public Compteur getCptLike() {
+		CptLike cptLike = null;
+		for (Compteur cpt : listeCompteurs) {
+			if (cpt instanceof CptLike) cptLike = (CptLike) cpt;
+		}	
+		return cptLike;
+	}
+	
 	public Commentaire commToDto() {
 		Commentaire commToDto = new Commentaire(this.getIdComm(), this.getTexteComm());
 		if (this.getTitre() != null) commToDto.setTitre(this.getTitre().titreToDto());
-		if (this.getCompteurs() != null) {
+		if (this.getListeCompteurs() != null) {
 			ArrayList<Compteur> cptToDto = new ArrayList<>();
-			for (Compteur compteur : this.getCompteurs()) {
+			for (Compteur compteur : this.getListeCompteurs()) {
 				Compteur compteurDto = compteur.cptToDto();
 				cptToDto.add(compteurDto);
 			}
-			commToDto.setCompteurs(cptToDto);
+			commToDto.setListeCompteurs(cptToDto);
 		}
 		return commToDto;
 	}
+
 }

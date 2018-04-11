@@ -13,6 +13,11 @@
 	 	<action name="formulaire">
 			<result>/vue/UC3/formulaire.jsp</result>
 		</action>
+				
+		<action name="listerCommentaires" class="beanAction.ListerCommAction">
+			<result>/vue/UC3/liste.jsp</result>
+		</action>
+		
 <!--				
 		<action name="CreerComm" class="beanAction.CreationCommAction">
 			<result>/vue/UC3/formulaire.jsp</result>
@@ -32,6 +37,7 @@
 			<result name="suppression">/vue/biblio/formAuteur.jsp</result> -->	
 			<allowed-methods>creation, modification, suppression</allowed-methods>
 		</action>
+
 		
 <!--
 		<action name="TODO">
