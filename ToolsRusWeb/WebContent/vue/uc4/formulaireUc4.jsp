@@ -7,6 +7,7 @@
 <title>Formulaire Mot</title>
 </head>
 <body>
+		<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
 </body>
 </html>
