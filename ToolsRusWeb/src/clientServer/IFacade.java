@@ -1,5 +1,7 @@
 package clientServer;
 
+import java.util.ArrayList;
+
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
 import entity.uc3_Donner1Avis.commentaire.CommentaireVideException;
 import entity.uc3_Donner1Avis.commentaire.Commentaires;
@@ -29,7 +31,7 @@ public interface IFacade {
 	public void supAllTitres();
 	public void supAllCompteurs();
 	
-	public Commentaires getAllCommParId();
+	public ArrayList<Commentaire> getAllCommParId();
 	public Titres getAllTitreParId();
 	public Compteurs getAllCompteurParId();
 	
@@ -40,6 +42,6 @@ public interface IFacade {
 	public void modifCommentaire(Commentaire commentaire);
 	public void modifTitre(Titre titre);
 	public void modifCompteur(Compteur compteur);
-	
+	public void incrementCompteur(Compteur compteur);
 	
 }

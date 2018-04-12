@@ -11,31 +11,46 @@
 </head>
 <body>
 
+
 	<h1 style="text-align:center;">Liste des commentaires !</h1>
 	
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
+ 	
+	<s:url namespace="/uc3" action="incremLikeCompteur"		var="incremLike" />
+	<s:url namespace="/uc3" action="incremDislikeCompteur" 	var="incremDislike" />
 	
 	<table id="tableCommentaire">
 		<caption>Liste des commentaires enregistrés</caption>
 		<tr>
+			<th>Titre</th>
 			<th>Commentaire</th>
-			<th>Like</th>
-			<th>Dislike</th>
+			<th>Nb Like</th>
+			<th></th>
+			<th>Nb Dislike</th>
+			<th></th>
 		</tr>
 		<s:iterator value="listeCommentaires">
 			<tr>
-				<td value="commentaire.texteComm"></td>
-				<td value="">valeur like</td>
-				<td value="">valeur dislike</td>
+				<td><s:property value="titre.txtTitre" /></td>
+				<td><s:property value="texteComm" /></td>
+				<td><s:property value="getCptLike().compteur" /></td>
+ 				<td>
+ 					<s:form namespace="" action="" method="post">
+ 						<s:submit name="getCptLike().idCompteur" 	value="+1" formaction="${incremLike}" />
+ 					</s:form>
+ 				</td>
+				<td>
+					<s:property value="getCptDislike().compteur"/>
+				</td>
+				<td>
+ 					<s:form namespace="" action="" method="post">
+ 						<s:submit name="getCptDislike().idCompteur"	value="+1" formaction="${incremDislike}" />
+ 					</s:form>
+ 				</td>
 			</tr>
 		</s:iterator>
-		<tr>
-			<td>a</td>
-			<td>b</td>
-			<td>c</td>
-		</tr>
-		
 	</table>
+	
 	
 </body>
 </html>

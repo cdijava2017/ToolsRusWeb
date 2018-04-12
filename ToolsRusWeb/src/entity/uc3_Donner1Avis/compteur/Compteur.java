@@ -22,11 +22,6 @@ public abstract class Compteur implements Serializable {
 		this.compteur = compteur;
 	}
 
-//	public Compteur(int id, int compteur) {
-//		this.idCompteur = id;
-//		this.compteur = compteur;
-//	}
-
 	@Override
 	public String toString() {
 		return "idCompteur=" + idCompteur + ", compteur=" + compteur;

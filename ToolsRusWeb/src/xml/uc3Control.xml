@@ -38,6 +38,10 @@
 			<allowed-methods>creation, modification, suppression</allowed-methods>
 		</action>
 
+		<action name="*Compteur" method="{1}" class="beanAction.ListerCommAction">
+			<result name="success">/vue/UC3/liste.jsp</result>
+			<allowed-methods>incremDislike, incremLike</allowed-methods>
+		</action>
 		
 <!--
 		<action name="TODO">
