@@ -2,14 +2,8 @@ package entity.uc3_Donner1Avis.titre;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import utils.Commentable;
-
-public class Titre  implements Serializable, Commentable {
+public class Titre  implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -41,6 +35,17 @@ public class Titre  implements Serializable, Commentable {
 	
 	public String toString() {
 		return "Titre = " + idTitre + ", txtTitre = " + txtTitre;
+	}
+	
+	public boolean equals(Titre titre) {
+		boolean resultat;
+		if (titre.idTitre == this.idTitre || titre.txtTitre == this.txtTitre) resultat = true;
+		else resultat = false;
+		return resultat;
+	}
+
+	public Titre titreToDto() {
+		return new Titre(this.getIdTitre(), this.getTxtTitre());
 	}
 	
 }
