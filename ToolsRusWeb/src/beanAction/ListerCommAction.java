@@ -25,6 +25,7 @@ public class ListerCommAction extends ApplicationSupport {
 	private Collection<Compteur> listeCompteurs;
 	private Compteur cptDislike;
 	private Compteur cptLike;
+	private int idCompteur;
 	
 
 	@Override
@@ -55,7 +56,9 @@ public class ListerCommAction extends ApplicationSupport {
 		System.out.println("***** Nacer execute(): méthode incremLike() ListerCommAction");
 //		interfaceFacade.incrementCompteur(getCptLike());
 //		interfaceFacade.modifCommentaire(commentaire);
-		System.out.println(cptLike);
+		System.out.println("getIdCompteur() : " + getIdCompteur());
+		System.out.println("getCptLike().getIdCompteur() : " + getCptLike());
+		System.out.println("cptLike : " + cptLike);
 		return SUCCESS;
 	}
 	
@@ -97,6 +100,14 @@ public class ListerCommAction extends ApplicationSupport {
 	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
 	public void setListeCommentaires(ArrayList<Commentaire> listeCommentaires) {
 		this.listeCommentaires = listeCommentaires;
+	}
+
+	public int getIdCompteur() {
+		return idCompteur;
+	}
+
+	public void setIdCompteur(int idCompteur) {
+		this.idCompteur = idCompteur;
 	}
 
 

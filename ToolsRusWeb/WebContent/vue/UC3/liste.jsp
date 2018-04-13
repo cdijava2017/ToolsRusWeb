@@ -25,9 +25,9 @@
 			<th>Titre</th>
 			<th>Commentaire</th>
 			<th>Nb Like</th>
-			<th></th>
+			<th>id compt Like</th>
 			<th>Nb Dislike</th>
-			<th></th>
+			<th>id compt Dislike</th>
 		</tr>
 		<s:iterator value="listeCommentaires">
 			<tr>
@@ -35,7 +35,8 @@
 				<td><s:property value="texteComm" /></td>
 				<td><s:property value="getCptLike().compteur" /></td>
  				<td>
- 					<s:form namespace="" action="" method="post">
+ 					<s:property value="getCptLike().idCompteur" />
+	 				<s:form namespace="" action="" method="post">
  						<s:submit name="getCptLike().idCompteur" 	value="+1" formaction="${incremLike}" />
  					</s:form>
  				</td>
@@ -43,7 +44,8 @@
 					<s:property value="getCptDislike().compteur"/>
 				</td>
 				<td>
- 					<s:form namespace="" action="" method="post">
+					<s:property value="getCptDislike().idCompteur" />
+	  				<s:form namespace="" action="" method="post">
  						<s:submit name="getCptDislike().idCompteur"	value="+1" formaction="${incremDislike}" />
  					</s:form>
  				</td>
