@@ -23,9 +23,8 @@ public class ListerCommAction extends ApplicationSupport {
 	private ArrayList<Commentaire> listeCommentaires;
 	public Titre titre;
 	private Collection<Compteur> listeCompteurs;
-	private Compteur cptDislike;
-	private Compteur cptLike;
-	
+	private String id;
+
 
 	@Override
 	public String execute() throws Exception {
@@ -46,26 +45,27 @@ public class ListerCommAction extends ApplicationSupport {
 	}
 
 	public String lister() throws Exception {
-		System.out.println("***** Nacer execute(): méthode creation() ListerCommAction");
+		System.out.println("***** Nacer execute(): méthode lister() ListerCommAction");
 		setListeCommentaires(interfaceFacade.getAllCommParId());
 		return SUCCESS;
 	}
-	
+
 	public String incremLike() throws Exception {
 		System.out.println("***** Nacer execute(): méthode incremLike() ListerCommAction");
-//		interfaceFacade.incrementCompteur(getCptLike());
-//		interfaceFacade.modifCommentaire(commentaire);
-		System.out.println(cptLike);
+		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
+		System.out.println("id : " + id.substring(2,3));
+		lister();
 		return SUCCESS;
 	}
-	
+
 	public String incremDislike() throws Exception {
 		System.out.println("***** Nacer execute(): méthode incremDislike() ListerCommAction");
-		System.out.println(cptDislike);
-//		interfaceFacade.modifCommentaire(commentaire);
+		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
+		System.out.println("id : " + id.substring(2,3));
+		lister();
 		return SUCCESS;
 	}
-	
+
 	public Commentaire getCommentaire() { return commentaire; }
 	public void setCommentaire(Commentaire commentaire) {
 		this.commentaire = commentaire;
@@ -75,7 +75,7 @@ public class ListerCommAction extends ApplicationSupport {
 	public void setTitre(Titre titre) {
 		this.titre = titre;
 	}
-	
+
 	public Collection<Compteur> getListeCompteurs() { return listeCompteurs;	}
 	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
 		this.listeCompteurs = compteurs;
@@ -84,21 +84,15 @@ public class ListerCommAction extends ApplicationSupport {
 		this.listeCompteurs.add(compteur);
 	}
 
-	public Compteur getCptDislike() { return cptDislike; }
-	public void setCptDislike(Compteur cptDislike) {
-		this.cptDislike = cptDislike;
-	}
-
-	public Compteur getCptLike() { return cptLike; }
-	public void setCptLike(Compteur cptLike) {
-		this.cptLike = cptLike;
-	}
-
 	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
 	public void setListeCommentaires(ArrayList<Commentaire> listeCommentaires) {
 		this.listeCommentaires = listeCommentaires;
 	}
 
+	public String getId() { return id; }
+	public void setId(String id) {
+		this.id = id;
+	}
 
 }
 

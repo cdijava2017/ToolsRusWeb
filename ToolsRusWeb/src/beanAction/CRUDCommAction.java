@@ -1,7 +1,6 @@
 package beanAction;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -10,8 +9,6 @@ import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
 import entity.uc3_Donner1Avis.compteur.Compteur;
-import entity.uc3_Donner1Avis.compteur.CptDislike;
-import entity.uc3_Donner1Avis.compteur.CptLike;
 import entity.uc3_Donner1Avis.titre.Titre;
 
 public class CRUDCommAction extends ApplicationSupport {
@@ -26,6 +23,7 @@ public class CRUDCommAction extends ApplicationSupport {
 	private ArrayList<Compteur> listeCompteurs;
 	private Compteur cptDislike;
 	private Compteur cptLike;
+	private String message = null;
 
 	@Override
 	public String execute() throws Exception {
@@ -45,24 +43,51 @@ public class CRUDCommAction extends ApplicationSupport {
 	}
 
 	public String creation() throws Exception {
-		System.out.println("***** Nacer execute(): méthode creation() CRUDCommAction");
+		System.out.println("***** Nacer : méthode creation() CRUDCommAction");
 		titre.setIdTitre(commentaire.getIdComm());
 		commentaire.setTitre(titre);
-		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
-		interfaceFacade.addCommentaire(commentaire);
-		commentaire = null;
-		titre = null;
-		listeCompteurs = null;
+		System.out.println(commentaire.getIdComm());
+		if (commentaire.getIdComm() == 0) { message = "** ATTENTION : votre commentaire n'a pas d'identifiant !! **"; }
+		else if (commentaire.getTexteComm().isEmpty()) { message = "** ATTENTION : votre commentaire est vide !! **"; }
+		else if (commentaire.getTitre().getTxtTitre().isEmpty()) { message = "** ATTENTION : votre commentaire n'a pas de titre !! **"; }
+		else { 
+			Commentaire test = interfaceFacade.getCommParRef(commentaire.getIdComm());
+			System.out.println("** test : " + test);
+			System.out.println("** commentaire : " + commentaire);
+
+			if (test != null && test.getIdComm() == commentaire.getIdComm()) { message = "** ATTENTION : un commentaire existe déjà avec cet identifiant !! **";
+			System.out.println("message : " + message);}
+			else { 
+				try {
+					interfaceFacade.addCommentaire(commentaire);
+
+				} catch (Exception e) {
+					System.out.println("e.getClass : " + e.getClass());
+					System.out.println("e.getMessage : " + e.getMessage());
+					System.out.println("e.getCause : " + e.getCause());
+				}
+
+				System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
+				commentaire = null;
+				titre = null;
+				listeCompteurs = null;
+				System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
+				setMessage("créé");
+			}
+		}
 		return SUCCESS;
 	}
 	public String modification() throws Exception {
 		System.out.println("***** Nacer execute(): méthode modification() CRUDCommAction");
+
 		titre.setIdTitre(commentaire.getIdComm());
+		System.out.println(titre);
 		commentaire.setTitre(titre);
 		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
 		interfaceFacade.modifCommentaire(commentaire);
 		commentaire = null;
-		titre = null;
+		titre = null;		
+		setMessage("modifié");
 		return SUCCESS;
 	}
 	public String suppression() throws Exception {
@@ -73,9 +98,10 @@ public class CRUDCommAction extends ApplicationSupport {
 		interfaceFacade.supCommParId(commentaire);
 		commentaire = null;
 		titre = null;
+		setMessage("supprimé");
 		return SUCCESS;
 	}
-	
+
 	public Commentaire getCommentaire() { return commentaire; }
 	public void setCommentaire(Commentaire commentaire) {
 		this.commentaire = commentaire;
@@ -102,6 +128,11 @@ public class CRUDCommAction extends ApplicationSupport {
 	public Compteur getCptLike() { return cptLike; }
 	public void setCptLike(Compteur cptLike) {
 		this.cptLike = cptLike;
+	}
+
+	public String getMessage() { return message; }
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

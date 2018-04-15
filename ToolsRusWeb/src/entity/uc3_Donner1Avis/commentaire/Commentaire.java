@@ -3,6 +3,7 @@ package entity.uc3_Donner1Avis.commentaire;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.compteur.CptDislike;
@@ -24,7 +25,7 @@ public class Commentaire implements Serializable, ICommentable {
 	private int idComm;
 	private String  texteComm;
 	private Titre titre;
-	private ArrayList<Compteur> listeCompteurs = null;
+	private Collection<Compteur> listeCompteurs = null;
 
 
 	/**
@@ -85,10 +86,10 @@ public class Commentaire implements Serializable, ICommentable {
 		this.titre = titre;
 	}
 
-	public ArrayList<Compteur> getListeCompteurs() {
+	public Collection<Compteur> getListeCompteurs() {
 		return listeCompteurs;
 	}
-	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
+	public void setListeCompteurs(Collection<Compteur> compteurs) {
 		this.listeCompteurs = compteurs;
 	}
 	public void addCompteur(Compteur compteur) {
