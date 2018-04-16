@@ -24,8 +24,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Mot")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public /*abstract*/ class Mot implements Serializable {
+@Inheritance(strategy=InheritanceType.JOINED)
+public abstract class Mot implements Serializable {
 	
 	/**
 	 * 
@@ -48,7 +48,10 @@ public /*abstract*/ class Mot implements Serializable {
 //	court-circuit is the association of the word "court" and the word "circuit".
 //	TODO
 	
-	
+	//default constructor
+	public Mot() {
+		super();
+		}
 	
 	//constructor
 	public Mot(int idMot, String libelleMot, Image image) {
@@ -98,8 +101,10 @@ public /*abstract*/ class Mot implements Serializable {
 
 	@Override
 	public String toString() {
-		return "identifiant du Mot= (" + idMot + ", libelle du Mot=" + libelleMot + ")";
+		return "identifiant du Mot= " + idMot + ", libelle du Mot=" + libelleMot;
 	}
+
+	
 	
 
 }
