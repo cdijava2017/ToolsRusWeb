@@ -8,7 +8,6 @@
 	<title>ToolsRuS</title>
 	<link rel="stylesheet" type="text/css " href="<%=request.getContextPath()%>/style/Menu.css" />
 	<link rel="stylesheet" type="text/css "	href="<%=request.getContextPath()%>/style/bootstrap.min.css" />
-
 </head>
 <body>
 

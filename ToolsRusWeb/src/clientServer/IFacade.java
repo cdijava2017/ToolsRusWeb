@@ -3,7 +3,7 @@ package clientServer;
 import java.util.ArrayList;
 
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
-import entity.uc3_Donner1Avis.commentaire.CommentaireVideException;
+import entity.uc3_Donner1Avis.commentaire.CommentaireException;
 import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.compteur.CompteurVideException;
 import entity.uc3_Donner1Avis.compteur.Compteurs;
@@ -17,16 +17,16 @@ public interface IFacade {
 	 * Partie de l'interface groupe qui fait référence aux méthodes de l'UC3 - Donner un avis (commenter)
 	 * @param commentaire @param titre @param compteur @param ref
 	 * 
-	 * @throws CommentaireVideException 
+	 * @throws CommentaireException 
 	 * @author Nacer ATOUT
 	 */
 	
-	public Commentaire addCommentaire(Commentaire commentaire) throws CommentaireVideException;
+	public Commentaire addCommentaire(Commentaire commentaire) throws CommentaireException;
 	public Titre addTitre(Titre titre) throws TitreVideException;
 	public Compteur addCompteur(Compteur compteur) throws CompteurVideException;
 	
 	public void supAllCommentaires();
-	public void supCommParId(Commentaire commentaire);
+	public void supCommParId(Commentaire commentaire) throws CommentaireException;
 	public void supAllTitres();
 	public void supAllCompteurs();
 	
@@ -41,6 +41,6 @@ public interface IFacade {
 	public void modifCommentaire(Commentaire commentaire);
 	public void modifTitre(Titre titre);
 	public void modifCompteur(Compteur compteur);
-	public void incrementCompteur(int idCompteur);
-	
-}
+	public void incrementCompteur(Compteur compteur);
+
+}//public void incrementCompteur(int idCompteur);

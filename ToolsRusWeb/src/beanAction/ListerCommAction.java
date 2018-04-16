@@ -24,7 +24,7 @@ public class ListerCommAction extends ApplicationSupport {
 	public Titre titre;
 	private Collection<Compteur> listeCompteurs;
 	private String id;
-
+	
 
 	@Override
 	public String execute() throws Exception {
@@ -45,11 +45,11 @@ public class ListerCommAction extends ApplicationSupport {
 	}
 
 	public String lister() throws Exception {
-		System.out.println("***** Nacer execute(): méthode lister() ListerCommAction");
+		System.out.println("***** Nacer execute(): méthode creation() ListerCommAction");
 		setListeCommentaires(interfaceFacade.getAllCommParId());
 		return SUCCESS;
 	}
-
+	
 	public String incremLike() throws Exception {
 		System.out.println("***** Nacer execute(): méthode incremLike() ListerCommAction");
 		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
@@ -57,7 +57,7 @@ public class ListerCommAction extends ApplicationSupport {
 		lister();
 		return SUCCESS;
 	}
-
+	
 	public String incremDislike() throws Exception {
 		System.out.println("***** Nacer execute(): méthode incremDislike() ListerCommAction");
 		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
