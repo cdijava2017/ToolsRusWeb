@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <header>
 
 	<nav>
@@ -8,7 +8,7 @@
 	<button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>
 	<button class="tablink" onclick="openPage('ingredients', this, 'blue')" >Ingredients</button>
 	<button class="tablink" onclick="openPage('parleApresMoi', this, 'orange')" >Parle après moi</button> 
-	<button class="tablink" onclick="openPage('gererLaBase', this, 'orange')" >Gérer la base</button>
+	<button class="tablink" onclick="initAll('enrichirLaBase', this, '#0000ff')" ><s:a namespace="/uc4" action="accueilUc4">Enrichir la base</s:a></button>
 	<button class="tablink" onclick="openPage('humeur', this, '#E3084D')" >Humeur</button>
 	<button class="tablink" onclick="openPage('commentaire', this, 'orange')" >Commentaire</button>
 	<button class="tablink" onclick="openPage('passeAuTableau', this, 'orange')" >Passe au tableau</button>
