@@ -13,7 +13,11 @@
 	 	<action name="formulaire">
 			<result>/vue/UC3/formulaire.jsp</result>
 		</action>
-				
+		
+		<action name="supprimer" class="beanAction.ListerCommAction">  
+			<result>/vue/UC3/supprimer.jsp</result>
+		</action>
+		
 		<action name="listerCommentaires" class="beanAction.ListerCommAction">
 			<result>/vue/UC3/liste.jsp</result>
 		</action>
@@ -33,8 +37,8 @@
 		-->
 		<action name="*FormComm" method="{1}" class="beanAction.CRUDCommAction">
 			<result name="success">/vue/UC3/formulaire.jsp</result>
-<!-- 		<result name="modification">/vue/biblio/formAuteur.jsp</result>
-			<result name="suppression">/vue/biblio/formAuteur.jsp</result> -->	
+<!-- 		<result name="modification">/vue/biblio/formAuteur.jsp</result>	-->
+			<result name="INPUT">/vue/UC3/supprimer.jsp</result> 
 			<allowed-methods>creation, modification, suppression</allowed-methods>
 		</action>
 

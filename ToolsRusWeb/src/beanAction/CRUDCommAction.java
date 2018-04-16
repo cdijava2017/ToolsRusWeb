@@ -9,6 +9,7 @@ import javax.naming.InitialContext;
 import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
+import entity.uc3_Donner1Avis.commentaire.CommentaireException;
 import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.compteur.CptDislike;
 import entity.uc3_Donner1Avis.compteur.CptLike;
@@ -67,9 +68,7 @@ public class CRUDCommAction extends ApplicationSupport {
 	}
 	public String suppression() throws Exception {
 		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
-		titre.setIdTitre(commentaire.getIdComm());
-		commentaire.setTitre(titre);
-		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
+		System.out.println("***** Nacer commentaire : " + commentaire);
 		interfaceFacade.supCommParId(commentaire);
 		commentaire = null;
 		titre = null;
