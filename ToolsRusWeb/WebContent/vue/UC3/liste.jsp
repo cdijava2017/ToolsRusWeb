@@ -72,6 +72,8 @@
 		</div>
 		<hr>
 	</s:elseif>
+	
+	
 	<script src="<%=request.getContextPath()%>/script/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/script/jquery-3.2.1.min.js"></script>
 </body>

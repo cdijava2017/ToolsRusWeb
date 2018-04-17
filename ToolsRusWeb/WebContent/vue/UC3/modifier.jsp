@@ -11,20 +11,21 @@
 </head>
 <body>
 
-	<h1 style="text-align:center;">Formulaire commentaire !</h1>
+	<h1 style="text-align:center;">Modification du commentaire !</h1>
 	
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
-	<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" />
-
+	<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" >
+		<s:param name="id"> <s:property value="commentaire.idComm" /> </s:param>
+	</s:url>
 	<br><br><br><br><br>
 	
 	<div id="list_de_trucs">
 		<s:form namespace="" action="" method="post">
 			<s:actionerror />
-			<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  />
-			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " />
-			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   />
+			<s:textfield type="text" 	name="commentaire.titre.txtTitre" 	label="Saisir votre titre "  />
+			<s:textfield type="number" 	name="commentaire.idComm" 			label="L'id du commentaire " />
+			<s:textfield type="text" 	name="commentaire.texteComm" 		label="Votre commentaire "   />
 			<br><br><br><hr>
 	
 	   		<s:submit class="btn btn-success" name="choix" value="modification" formaction="${modifComm}" />    	

@@ -8,8 +8,6 @@ import javax.naming.InitialContext;
 import clientServer.IFacade;
 import clientServer.UserException;
 import entity.uc3_Donner1Avis.commentaire.Commentaire;
-import entity.uc3_Donner1Avis.commentaire.CommentaireException;
-import entity.uc3_Donner1Avis.compteur.Compteur;
 import entity.uc3_Donner1Avis.titre.Titre;
 
 public class CRUDCommAction extends ApplicationSupport {
@@ -20,15 +18,15 @@ public class CRUDCommAction extends ApplicationSupport {
 	private Context initialContext;
 
 	public Commentaire commentaire;
-	public Titre titre;
+	public Titre titre = new Titre();
 	private ArrayList<Commentaire> listeCommentaires;
 	private String message = null;
-	private int id;
+	private String id;
 
 	@Override
 	public String execute() throws Exception {
 		System.out.println("méthode execute()");
-		
+		commentaire = interfaceFacade.getCommParRef(Integer.parseInt(id.substring(2,3)));
 		return SUCCESS;
 	}
 
@@ -47,7 +45,6 @@ public class CRUDCommAction extends ApplicationSupport {
 		System.out.println("***** Nacer : méthode creation() CRUDCommAction");
 		titre.setIdTitre(commentaire.getIdComm());
 		commentaire.setTitre(titre);
-		System.out.println(commentaire.getIdComm());
 		if (commentaire.getIdComm() == 0) { message = "** ATTENTION : votre commentaire n'a pas d'identifiant !! **"; }
 		else if (commentaire.getTexteComm().isEmpty()) { message = "** ATTENTION : votre commentaire est vide !! **"; }
 		else if (commentaire.getTitre().getTxtTitre().isEmpty()) { message = "** ATTENTION : votre commentaire n'a pas de titre !! **"; }
@@ -71,7 +68,6 @@ public class CRUDCommAction extends ApplicationSupport {
 				System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
 				commentaire = null;
 				titre = null;
-//				listeCompteurs = null;
 				System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
 				setMessage("créé");
 			}
@@ -80,26 +76,21 @@ public class CRUDCommAction extends ApplicationSupport {
 	}
 	public String modification() throws Exception {
 		System.out.println("***** Nacer execute(): méthode modification() CRUDCommAction");
-
-		titre.setIdTitre(commentaire.getIdComm());
+		System.out.println(commentaire);
+		System.out.println("id : " + id);
+		titre.setIdTitre(Integer.parseInt(id));
+		titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
 		System.out.println(titre);
 		commentaire.setTitre(titre);
 		System.out.println("***** Nacer execute(): commentaire : " + commentaire);
 		interfaceFacade.modifCommentaire(commentaire);
 		commentaire = null;
 		titre = null;		
+		setListeCommentaires(interfaceFacade.getAllCommParId());
 		setMessage("modifié");
-		return SUCCESS;
-	}
-	public String suppression() throws Exception {
-		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
-		System.out.println("***** Nacer commentaire : " + commentaire);
-//		interfaceFacade.supCommParId(commentaire);
-		commentaire = null;
-		titre = null;
-		setMessage("supprimé");
 		return INPUT;
 	}
+
 
 	public Commentaire getCommentaire() { return commentaire; }
 	public void setCommentaire(Commentaire commentaire) {
@@ -119,6 +110,11 @@ public class CRUDCommAction extends ApplicationSupport {
 	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
 	public void setListeCommentaires(ArrayList<Commentaire> listeCommentaires) {
 		this.listeCommentaires = listeCommentaires;
+	}
+
+	public String getId() { return id;	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
