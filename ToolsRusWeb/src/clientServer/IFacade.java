@@ -26,7 +26,7 @@ public interface IFacade {
 	public Compteur addCompteur(Compteur compteur) throws CompteurVideException;
 	
 	public void supAllCommentaires();
-	public void supCommParId(Commentaire commentaire) throws CommentaireException;
+	public void supCommParId(int idComm) throws CommentaireException;
 	public void supAllTitres();
 	public void supAllCompteurs();
 	
@@ -41,6 +41,6 @@ public interface IFacade {
 	public void modifCommentaire(Commentaire commentaire);
 	public void modifTitre(Titre titre);
 	public void modifCompteur(Compteur compteur);
-	public void incrementCompteur(Compteur compteur);
-
-}//public void incrementCompteur(int idCompteur);
+	public void incrementCompteur(int idCompteur);
+	
+}

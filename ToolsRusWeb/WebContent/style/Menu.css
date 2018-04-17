@@ -6,14 +6,17 @@
 	text-align : center;
 }
 div#list_de_trucs{
-margin:10px auto;
-width:100%;
-min-width:400px;
-max-width:700px;
+	margin:10px auto;
+	width:100%;
+	min-width:400px;
+	max-width:700px;
 }
 div#list_de_trucs table{
-margin:0px;
-width:100%;
+	margin:0px;
+	width:100%;
+}
+div#list_de_trucs#choix{
+	margin-left: 50%;
 }
 		
 /* Set height of body and the document to 100% */

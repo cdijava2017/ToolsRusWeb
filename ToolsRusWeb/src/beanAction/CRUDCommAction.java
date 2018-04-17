@@ -21,14 +21,14 @@ public class CRUDCommAction extends ApplicationSupport {
 
 	public Commentaire commentaire;
 	public Titre titre;
-	private ArrayList<Compteur> listeCompteurs;
-	private Compteur cptDislike;
-	private Compteur cptLike;
+	private ArrayList<Commentaire> listeCommentaires;
 	private String message = null;
+	private int id;
 
 	@Override
 	public String execute() throws Exception {
 		System.out.println("méthode execute()");
+		
 		return SUCCESS;
 	}
 
@@ -71,7 +71,7 @@ public class CRUDCommAction extends ApplicationSupport {
 				System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
 				commentaire = null;
 				titre = null;
-				listeCompteurs = null;
+//				listeCompteurs = null;
 				System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
 				setMessage("créé");
 			}
@@ -94,11 +94,11 @@ public class CRUDCommAction extends ApplicationSupport {
 	public String suppression() throws Exception {
 		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
 		System.out.println("***** Nacer commentaire : " + commentaire);
-		interfaceFacade.supCommParId(commentaire);
+//		interfaceFacade.supCommParId(commentaire);
 		commentaire = null;
 		titre = null;
 		setMessage("supprimé");
-		return SUCCESS;
+		return INPUT;
 	}
 
 	public Commentaire getCommentaire() { return commentaire; }
@@ -111,27 +111,14 @@ public class CRUDCommAction extends ApplicationSupport {
 		this.titre = titre;
 	}
 
-	public ArrayList<Compteur> getListeCompteurs() { return listeCompteurs;	}
-	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
-		this.listeCompteurs = compteurs;
-	}
-	public void addCompteur(Compteur compteur) {
-		this.listeCompteurs.add(compteur);
-	}
-
-	public Compteur getCptDislike() { return cptDislike; }
-	public void setCptDislike(Compteur cptDislike) {
-		this.cptDislike = cptDislike;
-	}
-
-	public Compteur getCptLike() { return cptLike; }
-	public void setCptLike(Compteur cptLike) {
-		this.cptLike = cptLike;
-	}
-
 	public String getMessage() { return message; }
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
+	public void setListeCommentaires(ArrayList<Commentaire> listeCommentaires) {
+		this.listeCommentaires = listeCommentaires;
 	}
 
 }

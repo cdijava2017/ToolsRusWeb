@@ -19,11 +19,12 @@ public class ListerCommAction extends ApplicationSupport {
 	private IFacade interfaceFacade;
 	private Context initialContext;
 
-	public Commentaire commentaire;
+	private Commentaire commentaire;
 	private ArrayList<Commentaire> listeCommentaires;
-	public Titre titre;
-	private Collection<Compteur> listeCompteurs;
+	private Titre titre;
+//	private Collection<Compteur> listeCompteurs;
 	private String id;
+	private String message = null;
 	
 
 	@Override
@@ -66,6 +67,15 @@ public class ListerCommAction extends ApplicationSupport {
 		return SUCCESS;
 	}
 
+	public String suppression() throws Exception {
+		System.out.println("***** Nacer execute(): méthode execute() SupprBeanAction");
+		System.out.println("id : " + id);
+		interfaceFacade.supCommParId(Integer.parseInt(id.substring(2,3)));
+		lister();
+		setMessage("supprimé");
+		return INPUT;
+	}
+	
 	public Commentaire getCommentaire() { return commentaire; }
 	public void setCommentaire(Commentaire commentaire) {
 		this.commentaire = commentaire;
@@ -76,13 +86,13 @@ public class ListerCommAction extends ApplicationSupport {
 		this.titre = titre;
 	}
 
-	public Collection<Compteur> getListeCompteurs() { return listeCompteurs;	}
-	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
-		this.listeCompteurs = compteurs;
-	}
-	public void addCompteur(Compteur compteur) {
-		this.listeCompteurs.add(compteur);
-	}
+//	public Collection<Compteur> getListeCompteurs() { return listeCompteurs;	}
+//	public void setListeCompteurs(ArrayList<Compteur> compteurs) {
+//		this.listeCompteurs = compteurs;
+//	}
+//	public void addCompteur(Compteur compteur) {
+//		this.listeCompteurs.add(compteur);
+//	}
 
 	public ArrayList<Commentaire> getListeCommentaires() { return listeCommentaires; }
 	public void setListeCommentaires(ArrayList<Commentaire> listeCommentaires) {
@@ -92,6 +102,11 @@ public class ListerCommAction extends ApplicationSupport {
 	public String getId() { return id; }
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getMessage() { return message; }
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

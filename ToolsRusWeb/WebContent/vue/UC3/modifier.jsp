@@ -15,9 +15,7 @@
 	
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
-	<s:url namespace="/uc3" action="creationFormComm" 		var="creaComm"  />
-<!--<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" />
-	<s:url namespace="/uc3" action="suppressionFormComm" 	var="supprComm" /> -->	
+	<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" />
 
 	<br><br><br><br><br>
 	
@@ -29,31 +27,18 @@
 			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   />
 			<br><br><br><hr>
 	
-	   		<div><s:submit class="btn btn-success" name="choix" value="creation" 	formaction="${creaComm}"  /></div>
-<!--   		<s:submit class="btn btn-success" name="choix" value="modification" formaction="${modifComm}" />    			
-			<s:submit class="btn btn-success" name="choix" value="suppression" 	formaction="${supprComm}" />	    -->	     
+	   		<s:submit class="btn btn-success" name="choix" value="modification" formaction="${modifComm}" />    	
 		</s:form>
 		<br><hr>
 	</div>
 	<br>
-	<s:if test="message == 'créé'">
-		<div class="alert alert-success">
-			<p class="centre">Le commentaire est bien <s:property value="message"/> !</p>
-		</div>
-		<hr>
-	</s:if>
 	<s:elseif test="message == 'modifié'">
 		<div class="alert alert-info">
 			<p class="centre">Le commentaire est bien <s:property value="message"/> !</p>
 		</div>
 		<hr>
 	</s:elseif>
-	<s:elseif test="message != null">
-		<div class="alert alert-danger">
-			<p class="centre"><s:property value="message"/></p>
-		</div>
-		<hr>
-	</s:elseif>
+
 
 	<script src="<%=request.getContextPath()%>/script/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/script/jquery-3.2.1.min.js"></script>

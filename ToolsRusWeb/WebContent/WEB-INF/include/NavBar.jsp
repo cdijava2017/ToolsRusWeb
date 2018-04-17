@@ -50,15 +50,11 @@
 		  <p>Les différents commentaires vont s'afficher sous forme de fil de discution.</p>
 		  <br>
 		  <div>
-		  	Pour créer ou modifier un commentaire, 
+		  	Pour créer un commentaire, 
 		  	<s:a class="btn btn-success" namespace="/uc3" action="formulaire">veuillez cliquer ici</s:a>
 		  </div>
 		  <div>
-		  	Pour supprimer un commentaire, 
-		  	<s:a class="btn btn-success" namespace="/uc3" action="supprimer">veuillez cliquer ici</s:a>
-		  </div>
-		  <div>
-		  	Pour lister les commentaires, 
+		  	Pour lister les commentaires, les modifier et les supprimer, 
 		  	<s:a class="btn btn-success" namespace="/uc3" action="listerCommentaires">veuillez cliquer ici</s:a>
 		  </div>
 		</div>
