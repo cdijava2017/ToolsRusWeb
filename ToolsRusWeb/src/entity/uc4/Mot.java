@@ -104,6 +104,11 @@ public abstract class Mot implements Serializable {
 		return "identifiant du Mot= " + idMot + ", libelle du Mot=" + libelleMot;
 	}
 
+	public void ajouter(Mot mot) {
+		
+		
+	}
+
 	
 	
 

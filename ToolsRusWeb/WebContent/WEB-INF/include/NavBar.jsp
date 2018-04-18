@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <header>
 
 	<nav>
@@ -8,7 +9,7 @@
 	<button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>
 	<button class="tablink" onclick="openPage('ingredients', this, 'blue')" >Ingredients</button>
 	<button class="tablink" onclick="openPage('parleApresMoi', this, 'orange')" >Parle après moi</button> 
-	<button class="tablink" onclick="initAll('enrichirLaBase', this, '#0000ff')" ><s:a namespace="/uc4" action="accueilUc4">Enrichir la base</s:a></button>
+	<s:a namespace="/uc4" action="accueilUc4" ><button class="tablink" onclick="openPage('enrichirLaBase', this, '#0000ff')">Enrichir la base</button></s:a>
 	<button class="tablink" onclick="openPage('humeur', this, '#E3084D')" >Humeur</button>
 	<button class="tablink" onclick="openPage('commentaire', this, 'orange')" >Commentaire</button>
 	<button class="tablink" onclick="openPage('passeAuTableau', this, 'orange')" >Passe au tableau</button>
@@ -36,7 +37,7 @@
 		
 		<div id="enrichirLaBase" class="tabcontent">
 		  <h3>Enrichir la base</h3>
-		  <p>Mettre un descriptif</p>
+		  <p>Dans cette partie, vous pouvez ajouter un mot ou une image afin d'enrichir la base d'information.</p>
 		</div>
 		
 		<div id="humeur" class="tabcontent">
@@ -54,9 +55,7 @@
 		  <p>Mettre un descriptif</p>
 		</div>
 
-
-<script src="<%=request.getContextPath()%>/script/scriptMenu.js" charset="UTF-8"></script>
-
+		<script src="<%=request.getContextPath()%>/script/scriptMenu.js" charset="UTF-8"></script>
 
 	</nav>
 

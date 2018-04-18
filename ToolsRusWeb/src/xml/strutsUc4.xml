@@ -4,11 +4,36 @@
 "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<constant name="struts.devMode" value="true" />
+	
+	<include file="/xml/mot.xml"/>
+	
 	<package name="ToolsRusWeb" namespace="/uc4" extends="struts-default">
 		<default-action-ref name="accueilUc4" />
 
+	<!-- gestion des affichages de pages -->
        	<action name="accueilUc4">
 			<result>/vue/uc4/accueilUc4.jsp</result>
 		</action>
+		
+		<action name="formulaireUc4">
+			<result>/vue/uc4/formulaireUc4.jsp</result>
+		</action>
+		
+		<action name="formulaireUc4rempli">
+			<result>/vue/uc4/TODO.jsp</result>
+		</action>
+		
+		<action name="formulaireImageUc4">
+			<result>/vue/uc4/TODO.jsp</result>
+		</action>
+		
+		<action name="listeMotUc4">
+			<result>/vue/uc4/TODO.jsp</result>
+		</action>
+		
+		<action name="listeImageUc4">
+			<result>/vue/uc4/TODO.jsp</result>
+		</action>
+	
 	</package>
 </struts>

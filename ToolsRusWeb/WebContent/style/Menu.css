@@ -34,13 +34,18 @@ body, html {
     height: 100%;
 }
 
-#accueil {background-color: red;}
-#connexion {background-color: green;}
-#ingredients {background-color: blue;}
-#parleApresMoi {background-color: orange;}
-#enrichirLaBase{background-color: #0000ff;}
-#humeur {background-color: #E3084D;}
-#commentaire {background-color: orange;}
+a {	text-decoration:none;
+	color: white;}
+	
+H1 {test-align: center;}
+
+#accueil 		{background-color: red;}
+#connexion 		{background-color: green;}
+#ingredients 	{background-color: blue;}
+#parleApresMoi 	{background-color: orange;}
+#enrichirLaBase	{background-color: #0000ff;}
+#humeur 		{background-color: #E3084D;}
+#commentaire 	{background-color: orange;}
 #passeAuTableau {background-color: orange;}
-#commentaire {background-color: orange;}
+#commentaire 	{background-color: orange;}
 

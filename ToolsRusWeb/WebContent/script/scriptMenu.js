@@ -1,9 +1,9 @@
 /**
  * Controles de saisie Js
- * @param formBonbon
+ * @param form base d'information
  * @returns
  */
-
+window.onload;
 
 function openPage(pageName, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
@@ -28,20 +28,7 @@ function openPage(pageName, elmnt, color) {
 }
 
 
-//Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+	//Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
 
-function initAll(){
-	className = "tablink";
-	name = "Enrichir la base";
 	
-	listButtons = document.getElementsByClassName(className);
-					
-	for(i = 0 ; i < listButtons.length ; i++){
-		button = listButtons[i];
-		if(button.innerHTML === name) 
-			button.click();
-	}
-}
-
-window.onload = initAll;
