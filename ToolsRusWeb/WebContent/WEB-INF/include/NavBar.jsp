@@ -3,13 +3,13 @@
 <header>
 
 	<nav>
-
+			<!--<s:a namespace="/uc4" action="accueilUc4" ></s:a>-->
 
 	<button class="tablink" onclick="openPage('accueil', this, 'red')" >Accueil</button>
 	<button class="tablink" onclick="openPage('connexion', this, 'green')" id="defaultOpen">Connexion</button>
 	<button class="tablink" onclick="openPage('ingredients', this, 'blue')" >Ingredients</button>
 	<button class="tablink" onclick="openPage('parleApresMoi', this, 'orange')" >Parle après moi</button> 
-	<s:a namespace="/uc4" action="accueilUc4" ><button class="tablink" onclick="openPage('enrichirLaBase', this, '#0000ff')">Enrichir la base</button></s:a>
+	<button class="tablink" onclick="openPage('enrichirLaBase', this, '#0000ff')">Enrichir la base</button>
 	<button class="tablink" onclick="openPage('humeur', this, '#E3084D')" >Humeur</button>
 	<button class="tablink" onclick="openPage('commentaire', this, 'orange')" >Commentaire</button>
 	<button class="tablink" onclick="openPage('passeAuTableau', this, 'orange')" >Passe au tableau</button>

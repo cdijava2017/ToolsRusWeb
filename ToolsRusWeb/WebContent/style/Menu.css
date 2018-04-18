@@ -31,11 +31,11 @@ body, html {
     color: white;
     display: none;
     padding: 100px 20px;
-    height: 100%;
+    height: 50%;
 }
 
 a {	text-decoration:none;
-	color: white;}
+	color: black;}
 	
 H1 {test-align: center;}
 

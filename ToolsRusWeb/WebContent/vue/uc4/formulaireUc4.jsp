@@ -35,13 +35,17 @@
 				  </div>
 				  
 				<br>
-			    <button type="submit" class="btn btn-default">Enregistrer</button>
+			     <button type="submit" class="btn btn-default">Enregistrer</button>
 			  </s:form>
+			  	<s:a namespace="/uc4" action="accueilUc4">
+			  	 	<button type="submit" class="btn btn-default">Accueil</button>
+			  	</s:a>
+			  <br>
 			  <s:property value="msgRetour" />
 		</div>
 		
 	
-	<!--<script src="<%=request.getContextPath()%>/script/scriptMenu2.js" charset="UTF-8"></script>-->
+	<script src="<%=request.getContextPath()%>/script/scriptMenu2.js" charset="UTF-8"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
