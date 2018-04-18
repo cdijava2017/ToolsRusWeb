@@ -2,12 +2,6 @@ package entity.uc4;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="MotHumeur")
 
 public class MotHumeur extends Mot implements Serializable {
 
@@ -17,10 +11,10 @@ public class MotHumeur extends Mot implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	@Column(name="idHumeur", length=20)
+	
 	private int 	idHumeur;
 	
-	@Column(name="libelleHumeur", length=50)
+	
 	private String 	libelleHumeur;
 	
 		

@@ -2,13 +2,6 @@ package entity.uc4;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-
 /**
  * class Image in association with Mot
  * association also with class Fichier but not treated for the moment
@@ -16,9 +9,7 @@ import javax.persistence.Table;
  *
  */
 
-@Entity
-@Table(name="Image")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+
 public /*abstract*/ class Image implements Serializable {
 	
 	/**
@@ -26,14 +17,13 @@ public /*abstract*/ class Image implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="idimage", nullable=false)
+	
 	private int 	idImage;
 	
-	@Column(name="libelleimage", length=30, nullable=true)
+	
 	private String 	libelleImage;
 	
-	@Column(name="fichier", nullable=true)
+	
 	private Fichier fichier;
 	
 	
