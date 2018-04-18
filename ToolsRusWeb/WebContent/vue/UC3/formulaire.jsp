@@ -11,31 +11,42 @@
 </head>
 <body>
 
-	<h1 style="text-align:center;">Formulaire commentaire !</h1>
-	
+	<h1 class="text-center">Formulaire commentaire !</h1>
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
+	<s:if test="hasFieldErrors()">
+		<ul>
+			<s:fielderror>Les erreurs suivantes se sont produites : </s:fielderror>
+		</ul>
+		<hr />
+	</s:if>
+	<s:if test="hasActionErrors()">
+		<s:actionerror id="actionerror" label="actionerror : " />
+		<hr />
+	</s:if>
+	<s:if test="hasActionMessages()">
+		<s:actionmessage id="actionmessage" label="actionmessage :" />
+		<hr />
+	</s:if>
+	
 	<s:url namespace="/uc3" action="creationFormComm" 		var="creaComm"  />
-<!--<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" />
-	<s:url namespace="/uc3" action="suppressionFormComm" 	var="supprComm" /> -->	
 
 	<br><br><br><br><br>
 	
-	<div id="list_de_trucs">
+	<div id="list_de_trucs" class="text-center">
 		<s:form namespace="" action="" method="post">
 			<s:actionerror />
-			<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  />
-			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " />
-			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   />
+			<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  size="50"/>
+			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " size="10"/>
+			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   size="50"/>
 			<br><br><br><hr>
 	
-	   		<div><s:submit class="btn btn-success" name="choix" value="creation" 	formaction="${creaComm}"  /></div>
-<!--   		<s:submit class="btn btn-success" name="choix" value="modification" formaction="${modifComm}" />    			
-			<s:submit class="btn btn-success" name="choix" value="suppression" 	formaction="${supprComm}" />	    -->	     
+	   		<div id="submitForm"><s:submit id="submitForm" class="btn btn-success" value="creation" formaction="${creaComm}"  /></div>
 		</s:form>
 		<br><hr>
 	</div>
 	<br>
+	
 	<s:if test="message == 'créé'">
 		<div class="alert alert-success">
 			<p class="centre">Le commentaire est bien <s:property value="message"/> !</p>

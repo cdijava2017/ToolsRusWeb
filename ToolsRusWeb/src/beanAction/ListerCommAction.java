@@ -26,7 +26,7 @@ public class ListerCommAction extends ApplicationSupport {
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println("méthode execute()");
+		System.out.println("méthode execute() ListerCommAction");
 		lister();
 		return SUCCESS;
 	}
@@ -43,32 +43,30 @@ public class ListerCommAction extends ApplicationSupport {
 	}
 
 	public String lister() throws Exception {
-		System.out.println("***** Nacer lister() ListerCommAction");
+		System.out.println("***** méthode lister() ListerCommAction");
 		setListeCommentaires(interfaceFacade.getAllCommParId());
 		return SUCCESS;
 	}
 	
 	public String incremLike() throws Exception {
-		System.out.println("***** Nacer execute(): méthode incremLike() ListerCommAction");
-		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
-		System.out.println("id : " + id.substring(2,3));
-		lister();
+		System.out.println("***** méthode incremLike() ListerCommAction");
+		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,id.length())));	// conversion de l'id en int grace à la méthode substring()
+		lister();																			// recharge des commentaire pour afficher les compteurs mis à jour
 		return SUCCESS;
 	}
 	
 	public String incremDislike() throws Exception {
-		System.out.println("***** Nacer execute(): méthode incremDislike() ListerCommAction");
-		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,3)));
-		System.out.println("id : " + id.substring(2,3));
-		lister();
+		System.out.println("***** méthode incremDislike() ListerCommAction");
+		interfaceFacade.incrementCompteur(Integer.parseInt(id.substring(2,id.length())));	// conversion de l'id en int grace à la méthode substring()
+		lister();																			// recharge des commentaire pour afficher les compteurs mis à jour
 		return SUCCESS;
 	}
 
 	public String suppression() throws Exception {
-		System.out.println("***** Nacer execute(): méthode suppression() ListerCommAction");
-		interfaceFacade.supCommParId(Integer.parseInt(id.substring(2,3)));
-		lister();
-		setMessage("supprimé");
+		System.out.println("***** méthode suppression() ListerCommAction");
+		interfaceFacade.supCommParId(Integer.parseInt(id.substring(2,id.length())));		// conversion de l'id en int grace à la méthode substring()
+		lister();																			// recharge des commentaire pour afficher les compteurs mis à jour
+		setMessage("supprimé");																// positionne le message qui va s'afficher dans la JSP
 		return INPUT;
 	}
 	

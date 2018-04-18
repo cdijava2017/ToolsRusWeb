@@ -29,31 +29,33 @@
 	</s:url>
 
 	<div id="list_de_trucs" class="table-responsive" >
-		<table id="tableCommentaire" >
+		<table id="tableCommentaire">
 			<caption class="centre">Liste des commentaires enregistrés</caption>
-			<tr>
-				<th>Titre</th>
-				<th>Commentaire</th>
+			<tr class="text-center" bgcolor="#82C46C" >
+				<th width="200px">Titre</th>
+				<th width="300px">Commentaire</th>
 				<th>Liker</th>
-				<th></th>
+				<th width="50px"></th>
 				<th>Disliker</th>
+				<th width="50"></th>
 				<th></th>
-				<th>Supprimer</th>
+				<th></th>
 			</tr>
 			<s:if test="listeCommentaires.isEmpty()">
 				<p class="centre">Aucun commentaire à afficher, veuillez d'abord en créer.</p>
 			</s:if>
 			<s:else>
 				<s:iterator value="listeCommentaires">
-					<tr>
+					<tr class="text-center"bgcolor="#E6E6E6">
 						<td><s:property value="titre.txtTitre" /></td>
 						<td><s:property value="texteComm" /></td>
 						<td><s:property value="getCptLike().compteur" /></td>
 						<td><s:a action="%{incremLike}"><s:param name="id">		<s:property value="getCptLike().idCompteur" /> 		</s:param> +1 </s:a></td>
 						<td><s:property value="getCptDislike().compteur" /></td>
 						<td><s:a action="%{incremDislike}"><s:param name="id">	<s:property value="getCptDislike().idCompteur" />	</s:param> +1 </s:a></td>
-						<td><s:a action="%{supprimerComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> supprimer </s:a></td>
-						<td><s:a action="%{modifierComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> modifier </s:a></td>
+						<td><s:a action="%{supprimerComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> &nbsp;&nbsp;supprimer&nbsp; </s:a></td>
+						<td><s:a action="%{modifierComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> &nbsp;modifier&nbsp;&nbsp; </s:a></td>
+						
 					</tr>
 				</s:iterator>
 			</s:else>
