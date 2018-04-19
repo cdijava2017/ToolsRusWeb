@@ -1,6 +1,5 @@
 package entity.uc3_Donner1Avis.commentaire;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,7 +10,6 @@ import entity.uc3_Donner1Avis.compteur.CptLike;
 import entity.uc3_Donner1Avis.titre.Titre;
 import utils.ICommentable;
 
-
 /**
  * TODO Commenter cette classe au maximum
  * @author Nacer
@@ -21,7 +19,7 @@ import utils.ICommentable;
 public class Commentaire implements Serializable, ICommentable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private int idComm;
 	private String  texteComm;
 	private Titre titre;
@@ -54,7 +52,7 @@ public class Commentaire implements Serializable, ICommentable {
 	}
 	/**
 	 *  Constructeur avec le titre et la liste de compteurs en plus. 
-	 *  @param idComm, @param texteComm, @param compteur et @param titre. 
+	 *  @param idComm, @param texteComm, @param compteurs et @param titre. 
 	 */
 	public Commentaire(int idComm, String texteComm, Titre titre, ArrayList<Compteur> compteurs) {
 		this.idComm = idComm;
@@ -102,39 +100,43 @@ public class Commentaire implements Serializable, ICommentable {
 				+ listeCompteurs + "]";
 	}
 
-	public boolean equals(Commentaire comm) {
+	public boolean equals(Commentaire comm) {			
 		boolean resultat;
 		if (comm.idComm == this.idComm || comm.texteComm == this.texteComm) resultat = true;
 		else resultat = false;
 		return resultat;
 	}
 	
-	public void incrementDislike() {
+	public void incrementDislike() {					// incrémente le compteur de Dislike dans la liste de compteurs du commentaire
 		for (Compteur cpt : listeCompteurs) {
 			if (cpt instanceof CptDislike) cpt.compteurPlus1();
 		}		
 	}
-	public void incrementLike() {
+	public void incrementLike() {						// incrémente le compteur de Like dans la liste de compteurs du commentaire
 		for (Compteur cpt : listeCompteurs) {
 			if (cpt instanceof CptLike) cpt.compteurPlus1();
 		}		
 	}
 	
-	public Compteur getCptDislike() {
+	public Compteur getCptDislike() {					// récupère le compteur de Dislike dans la liste de compteurs du commentaire
 		CptDislike cptDislike = null;
 		for (Compteur cpt : listeCompteurs) {
 			if (cpt instanceof CptDislike) cptDislike = (CptDislike) cpt;
 		}		
 		return cptDislike;
 	}
-	public Compteur getCptLike() {
+	public Compteur getCptLike() {						// récupère le compteur de Like dans la liste de compteurs du commentaire
 		CptLike cptLike = null;
 		for (Compteur cpt : listeCompteurs) {
 			if (cpt instanceof CptLike) cptLike = (CptLike) cpt;
 		}	
 		return cptLike;
 	}
-	
+	/**
+	 * La méthode commToDto() convertie un commentaire retourné par la base en un Objet de classe Commentaire. 
+	 * Ceci afin de pouvoir l'utiliser sans avoir de conflit de typage.
+	 * @return commToDo qui est un commentaire modifié
+	 */
 	public Commentaire commToDto() {
 		Commentaire commToDto = new Commentaire(this.getIdComm(), this.getTexteComm());
 		if (this.getTitre() != null) commToDto.setTitre(this.getTitre().titreToDto());
@@ -148,5 +150,5 @@ public class Commentaire implements Serializable, ICommentable {
 		}
 		return commToDto;
 	}
-
+	
 }

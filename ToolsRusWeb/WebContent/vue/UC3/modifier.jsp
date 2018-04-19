@@ -38,7 +38,7 @@
 		<s:form namespace="" action="" method="post">
 			<s:actionerror />
 			<s:textfield type="text" 	name="commentaire.titre.txtTitre" 	label="Saisir votre titre "  size="50"/>
-			<s:textfield type="number" 	name="commentaire.idComm" 			label="L'id du commentaire " size="10"/>
+	 		<s:textfield type="number" 	name="commentaire.idComm" 			label="L'id du commentaire " size="10" readonly="true" />		
 			<s:textfield type="text" 	name="commentaire.texteComm" 		label="Votre commentaire "   size="50"/>
 			<br><br><br><hr>
 	

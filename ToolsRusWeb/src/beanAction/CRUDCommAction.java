@@ -50,44 +50,26 @@ public class CRUDCommAction extends ApplicationSupport {
 		else if (commentaire.getTexteComm().isEmpty()) { message = "** ATTENTION : votre commentaire est vide !! **"; }
 		else if (commentaire.getTitre().getTxtTitre().isEmpty()) { message = "** ATTENTION : votre commentaire n'a pas de titre !! **"; }
 		else { 
-//			Commentaire test = null;
+
 			try {
-//				test = interfaceFacade.getCommParRef(commentaire.getIdComm());
-//				if (test == null)	
-					interfaceFacade.addCommentaire(commentaire);
+				interfaceFacade.addCommentaire(commentaire);
 				setMessage("créé");
 			} catch (CommentaireException e) {
-				message = "*** getMessage : " + e.getMessage();
+				message = e.getMessage();
 			}catch (Exception e) {
 				System.out.println("e.getClass : " + e.getClass());
 				System.out.println("e.getMessage : " + e.getMessage());
 				System.out.println("e.getCause : " + e.getCause());	
 
 			}
-//			System.out.println("** test : " + test);
-//			System.out.println("** commentaire : " + commentaire);
-//
-//			if (test != null && test.getIdComm() == commentaire.getIdComm()) { message = "** ATTENTION : un commentaire existe déjà avec cet identifiant !! **";
-//			System.out.println("message : " + message);}
-//			else { 
-//				try {
-//					interfaceFacade.addCommentaire(commentaire);
-//
-//				} catch (Exception e) {
-//					System.out.println("e.getClass : " + e.getClass());
-//					System.out.println("e.getMessage : " + e.getMessage());
-//					System.out.println("e.getCause : " + e.getCause());	
-//				}
-
-				System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
-				commentaire = null;
-				titre = null;
-				System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
-//				setMessage("créé");
-//			}
+			System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
+			commentaire = null;
+			titre = null;
+			System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
 		}
 		return SUCCESS;
 	}
+	
 	public String modification() throws Exception {
 		System.out.println("***** méthode modification() CRUDCommAction");
 		titre.setIdTitre(Integer.parseInt(id));
