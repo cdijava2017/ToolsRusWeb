@@ -15,6 +15,10 @@
 		</action>
 		
 	 	<action name="modifier" class="beanAction.CRUDCommAction" >
+<!--  		<interceptor-ref name="defaultStack" >
+ 				<param name="validation.excludeMethods">modifier</param>
+			</interceptor-ref> 		 -->
+	 		<result name="input">/vue/UC3/modifier.jsp</result>
 			<result name="success">/vue/UC3/modifier.jsp</result>
 		</action>
 				
@@ -23,17 +27,18 @@
 		</action>
 		
 		<action name="supprimerComm" class="beanAction.ListerCommAction" method="suppression" >
-			<result name="input">/vue/UC3/liste.jsp</result>
+			<result name="supprime">/vue/UC3/liste.jsp</result>
 		</action>
 		
 		<action name="modifierComm" class="beanAction.CRUDCommAction" method="modification" >
-			<result name="input">/vue/UC3/liste.jsp</result>
+			<result name="modif">/vue/UC3/liste.jsp</result>
+			<result name="input">/vue/UC3/modifier.jsp</result>
 		</action>
 
 		<action name="*FormComm" method="{1}" class="beanAction.CRUDCommAction">
 			<result name="success">/vue/UC3/formulaire.jsp</result>
-<!-- 		<result name="modification">/vue/biblio/formAuteur.jsp</result>	-->
-			<result name="input">/vue/UC3/liste.jsp</result> 					
+			<result name="input">/vue/UC3/formulaire.jsp</result>
+			<result name="modif">/vue/UC3/liste.jsp</result> 					
 			<allowed-methods>creation, modification, suppression</allowed-methods>
 		</action>
 

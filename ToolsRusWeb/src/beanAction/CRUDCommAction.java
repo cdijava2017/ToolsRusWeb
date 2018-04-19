@@ -42,15 +42,28 @@ public class CRUDCommAction extends ApplicationSupport {
 		}		    	
 	}
 
+	@Override
+	public void validate() {
+		titre.setIdTitre(commentaire.getIdComm());
+		commentaire.setTitre(titre);
+		if (commentaire.getIdComm() == 0) {
+			message = "** Attention, votre commentaire n'a pas d'identifiant !! **";
+			addFieldError("commentaire.idComm", message);
+		}
+		if (commentaire.getTexteComm().isEmpty()) { 
+			message = "** Attention, votre commentaire est vide !! **";
+			addFieldError("commentaire.texteComm", message); 
+		}
+		if (titre.getTxtTitre().isEmpty()) { 
+			message = "** Attention, votre commentaire n'a pas de titre !! **";
+			addFieldError("titre.txtTitre", message);
+		}
+	} 
+	
 	public String creation() throws Exception {
 		System.out.println("***** Nacer : méthode creation() CRUDCommAction");
 		titre.setIdTitre(commentaire.getIdComm());
 		commentaire.setTitre(titre);
-		if (commentaire.getIdComm() == 0) { message = "** ATTENTION : votre commentaire n'a pas d'identifiant !! **"; }
-		else if (commentaire.getTexteComm().isEmpty()) { message = "** ATTENTION : votre commentaire est vide !! **"; }
-		else if (commentaire.getTitre().getTxtTitre().isEmpty()) { message = "** ATTENTION : votre commentaire n'a pas de titre !! **"; }
-		else { 
-
 			try {
 				interfaceFacade.addCommentaire(commentaire);
 				setMessage("créé");
@@ -60,13 +73,11 @@ public class CRUDCommAction extends ApplicationSupport {
 				System.out.println("e.getClass : " + e.getClass());
 				System.out.println("e.getMessage : " + e.getMessage());
 				System.out.println("e.getCause : " + e.getCause());	
-
 			}
 			System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
 			commentaire = null;
 			titre = null;
 			System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
-		}
 		return SUCCESS;
 	}
 	
@@ -80,7 +91,7 @@ public class CRUDCommAction extends ApplicationSupport {
 		titre = null;		
 		setListeCommentaires(interfaceFacade.getAllCommParId());
 		setMessage("modifié");
-		return INPUT;
+		return "modif";
 	}
 
 

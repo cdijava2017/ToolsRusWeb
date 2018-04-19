@@ -67,7 +67,7 @@ public class ListerCommAction extends ApplicationSupport {
 		interfaceFacade.supCommParId(Integer.parseInt(id.substring(2,id.length())));		// conversion de l'id en int grace à la méthode substring()
 		lister();																			// recharge des commentaire pour afficher les compteurs mis à jour
 		setMessage("supprimé");																// positionne le message qui va s'afficher dans la JSP
-		return INPUT;
+		return "supprime";
 	}
 	
 	public Commentaire getCommentaire() { return commentaire; }

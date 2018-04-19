@@ -14,7 +14,8 @@
 	<h1 style="text-align: center;">Liste des commentaires !</h1>
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
-<br><br><br><br><hr>
+	<br><br><br><br><hr>
+	
 	<s:url namespace="/uc3" action="incremLikeCompteur" var="incremLike">
 		<s:param name="id">	<s:property value="getCptLike().idCompteur" /> </s:param>
 	</s:url>
@@ -53,13 +54,11 @@
 						<td><s:a action="%{incremLike}"><s:param name="id">		<s:property value="getCptLike().idCompteur" /> 		</s:param> +1 </s:a></td>
 						<td><s:property value="getCptDislike().compteur" /></td>
 						<td><s:a action="%{incremDislike}"><s:param name="id">	<s:property value="getCptDislike().idCompteur" />	</s:param> +1 </s:a></td>
-						<td><s:a action="%{supprimerComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> &nbsp;&nbsp;supprimer&nbsp; </s:a></td>
-						<td><s:a action="%{modifierComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> &nbsp;modifier&nbsp;&nbsp; </s:a></td>
-						
+						<td><s:a action="%{supprimerComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> &nbsp;supprimer </s:a></td>
+						<td><s:a action="%{modifierComm}"><s:param name="id">	<s:property value="idComm" />						</s:param> modifier&nbsp; </s:a></td>
 					</tr>
 				</s:iterator>
 			</s:else>
-
 		</table>
 	</div>
 	<s:if test="message == 'supprimé'">
