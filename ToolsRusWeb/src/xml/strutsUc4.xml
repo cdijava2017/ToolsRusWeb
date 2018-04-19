@@ -28,7 +28,7 @@
 		</action>
 		
 		<action name="listeMotUc4">
-			<result>/vue/uc4/TODO.jsp</result>
+			<result>/vue/uc4/listeMot.jsp</result>
 		</action>
 		
 		<action name="listeImageUc4">

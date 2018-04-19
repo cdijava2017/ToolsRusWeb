@@ -10,7 +10,7 @@
 	<title>Liste des mots</title>
 </head>
 <body>
-
+			<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 		<div class="container">
 		  <div class="table-responsive">          
 		  <table class="table">
@@ -23,7 +23,8 @@
 		    </thead>
 		    <tbody>
 		      <tr>
-		        <td>1</td>
+		        
+		        <td><s:checkbox name="choix" class="check" theme="simple"/></td>
 		        <td><s:property value="mot"/>content</td>
 		        <td><s:property value="categorie"/>humeur</td>
 		      </tr>
@@ -32,12 +33,17 @@
 		  </div>
 		
 		<div>
-			<button type="submit" class="btn btn-default">supprimer</button>
+			<s:a namespace="/uc4suppmot" action="suppmot">
+				<button type="submit" class="btn btn-default">supprimer</button>
+			</s:a>
 		</div>
 		<br>
 		<div>
-			<button type="submit" class="btn btn-default">modifier</button>
+			<s:a namespace="" action="">
+				<button type="submit" class="btn btn-default">modifier</button>
+			</s:a>
 		</div>
+		<br>
 		<div>
 			<s:a namespace="/uc4" action="accueilUc4">
 				 <button type="submit" class="btn btn-default">Accueil</button>
