@@ -14,21 +14,11 @@
 	<h1 style="text-align:center;">Modification du commentaire !</h1>
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 
-	<s:if test="hasFieldErrors()">
-		<ul>
-			<s:fielderror>Les erreurs suivantes se sont produites : </s:fielderror>
-		</ul>
-		<hr />
-	</s:if>
 	<s:if test="hasActionErrors()">
 		<s:actionerror id="actionerror" label="actionerror : " />
 		<hr />
 	</s:if>
-	<s:if test="hasActionMessages()">
-		<s:actionmessage id="actionmessage" label="actionmessage :" />
-		<hr />
-	</s:if>
-	
+
 	<s:url namespace="/uc3" action="modificationFormComm"	var="modifComm" >
 		<s:param name="id"> <s:property value="commentaire.idComm" /> </s:param>
 	</s:url>

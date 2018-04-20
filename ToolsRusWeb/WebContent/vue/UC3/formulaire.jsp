@@ -13,29 +13,19 @@
 
 	<h1 class="text-center">Formulaire commentaire !</h1>
 	<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
-<!-- 
-	<s:if test="hasFieldErrors()">
-		<ul>
-			<s:fielderror>Les erreurs suivantes se sont produites : </s:fielderror>
-		</ul>
-		<hr />
-	</s:if>			 
-	<s:if test="hasActionErrors()">
+
+ 	<s:if test="hasActionErrors()">
 		<s:actionerror id="actionerror" label="actionerror : " />
 		<hr />
 	</s:if>				
-	<s:if test="hasActionMessages()">
-		<s:actionmessage id="actionmessage" label="actionmessage :" />
-		<hr />
-	</s:if>
--->
+
 	<s:url namespace="/uc3" action="creationFormComm" 		var="creaComm"  />
 
 	<br><br><br><br><br>
 	
 	<div id="list_de_trucs" class="text-center">
 		<s:form namespace="" action="" method="post">
-<!-- 			<s:actionerror /> -->
+ 			<s:actionerror />
 			<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  size="50"/>
 			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " size="10"/>
 			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   size="50"/>
@@ -53,7 +43,7 @@
 		</div>
 		<hr>
 	</s:if>
-<!-- 
+
 	<s:elseif test="message == 'modifié'">
 		<div class="alert alert-info">
 			<p class="centre">Le commentaire est bien <s:property value="message"/> !</p>
@@ -66,7 +56,7 @@
 		</div>
 		<hr>
 	</s:elseif>
- -->
+
 	<script src="<%=request.getContextPath()%>/script/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/script/jquery-3.2.1.min.js"></script>
 </body>

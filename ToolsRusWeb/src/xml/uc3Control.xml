@@ -14,10 +14,10 @@
 			<result>/vue/UC3/formulaire.jsp</result>
 		</action>
 		
-	 	<action name="modifier" class="beanAction.CRUDCommAction" >
-<!--  		<interceptor-ref name="defaultStack" >
- 				<param name="validation.excludeMethods">modifier</param>
-			</interceptor-ref> 		 -->
+	 	<action name="modifier" class="beanAction.CRUDCommAction" method="execute">
+	  		<interceptor-ref name="defaultStack" >
+ 				<param name="validation.excludeMethods">execute</param>
+			</interceptor-ref> 		
 	 		<result name="input">/vue/UC3/modifier.jsp</result>
 			<result name="success">/vue/UC3/modifier.jsp</result>
 		</action>

@@ -28,6 +28,7 @@ public class CRUDCommAction extends ApplicationSupport {
 	public String execute() throws Exception {
 		System.out.println("*** méthode execute() CRUDCommAction");
 		commentaire = interfaceFacade.getCommParRef(Integer.parseInt(id.substring(2,id.length())));
+		System.out.println(commentaire);
 		return SUCCESS;
 	}
 
@@ -44,8 +45,13 @@ public class CRUDCommAction extends ApplicationSupport {
 
 	@Override
 	public void validate() {
+		System.out.println("méthode validate() CRUDAction");
+		System.out.println(titre);
+		System.out.println(commentaire);
 		titre.setIdTitre(commentaire.getIdComm());
+//		titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
 		commentaire.setTitre(titre);
+		System.out.println(commentaire);
 		if (commentaire.getIdComm() == 0) {
 			message = "** Attention, votre commentaire n'a pas d'identifiant !! **";
 			addFieldError("commentaire.idComm", message);
@@ -54,33 +60,37 @@ public class CRUDCommAction extends ApplicationSupport {
 			message = "** Attention, votre commentaire est vide !! **";
 			addFieldError("commentaire.texteComm", message); 
 		}
-		if (titre.getTxtTitre().isEmpty()) { 
+		if (commentaire.getTitre().getTxtTitre() == null) {
+			titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
+			commentaire.setTitre(titre);
+		}
+		if (commentaire.getTitre().getTxtTitre().isEmpty()) { 
 			message = "** Attention, votre commentaire n'a pas de titre !! **";
 			addFieldError("titre.txtTitre", message);
 		}
 	} 
-	
+
 	public String creation() throws Exception {
 		System.out.println("***** Nacer : méthode creation() CRUDCommAction");
 		titre.setIdTitre(commentaire.getIdComm());
 		commentaire.setTitre(titre);
-			try {
-				interfaceFacade.addCommentaire(commentaire);
-				setMessage("créé");
-			} catch (CommentaireException e) {
-				message = e.getMessage();
-			}catch (Exception e) {
-				System.out.println("e.getClass : " + e.getClass());
-				System.out.println("e.getMessage : " + e.getMessage());
-				System.out.println("e.getCause : " + e.getCause());	
-			}
-			System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
-			commentaire = null;
-			titre = null;
-			System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
+		try {
+			interfaceFacade.addCommentaire(commentaire);
+			setMessage("créé");
+		} catch (CommentaireException e) {
+			message = e.getMessage();
+		}catch (Exception e) {
+			System.out.println("e.getClass : " + e.getClass());
+			System.out.println("e.getMessage : " + e.getMessage());
+			System.out.println("e.getCause : " + e.getCause());	
+		}
+		System.out.println("***** Nacer : on vide les paramètre avant de recharger la page");
+		commentaire = null;
+		titre = null;
+		System.out.println("***** Nacer : on paramètre le message avant de recharger la page");
 		return SUCCESS;
 	}
-	
+
 	public String modification() throws Exception {
 		System.out.println("***** méthode modification() CRUDCommAction");
 		titre.setIdTitre(Integer.parseInt(id));
