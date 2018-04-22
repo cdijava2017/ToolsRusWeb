@@ -18,7 +18,6 @@
 	  		<interceptor-ref name="defaultStack" >
  				<param name="validation.excludeMethods">execute</param>
 			</interceptor-ref> 		
-	 		<result name="input">/vue/UC3/modifier.jsp</result>
 			<result name="success">/vue/UC3/modifier.jsp</result>
 		</action>
 				
@@ -35,13 +34,18 @@
 			<result name="input">/vue/UC3/modifier.jsp</result>
 		</action>
 
+		<action name="creationComm" class="beanAction.CRUDCommAction" method="creation" >
+			<result name="success">/vue/UC3/formulaire.jsp</result>
+			<result name="input">/vue/UC3/formulaire.jsp</result>
+		</action>
+<!-- 		
 		<action name="*FormComm" method="{1}" class="beanAction.CRUDCommAction">
 			<result name="success">/vue/UC3/formulaire.jsp</result>
 			<result name="input">/vue/UC3/formulaire.jsp</result>
 			<result name="modif">/vue/UC3/liste.jsp</result> 					
 			<allowed-methods>creation, modification, suppression</allowed-methods>
 		</action>
-
+ -->
 		<action name="*Compteur" method="{1}" class="beanAction.ListerCommAction">
 			<result name="success">/vue/UC3/liste.jsp</result>
 			<allowed-methods>incremDislike, incremLike</allowed-methods>

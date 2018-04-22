@@ -19,7 +19,7 @@ public class CRUDCommAction extends ApplicationSupport {
 	private Context initialContext;
 
 	public Commentaire commentaire;
-	public Titre titre = new Titre();
+	public Titre titre;
 	private ArrayList<Commentaire> listeCommentaires;
 	private String message = null;
 	private String id;
@@ -27,8 +27,15 @@ public class CRUDCommAction extends ApplicationSupport {
 	@Override
 	public String execute() throws Exception {
 		System.out.println("*** méthode execute() CRUDCommAction");
-		commentaire = interfaceFacade.getCommParRef(Integer.parseInt(id.substring(2,id.length())));
-		System.out.println(commentaire);
+		System.out.println("execute() commentaire : " + commentaire);
+		System.out.println("execute() titre : " + titre);
+		System.out.println("execute() id : " + id);
+		if (id != null) { 
+			commentaire = interfaceFacade.getCommParRef(Integer.parseInt(id.substring(2,id.length())));
+			System.out.println(commentaire);
+			titre = commentaire.getTitre();
+			System.out.println(titre); 
+		}
 		return SUCCESS;
 	}
 
@@ -46,28 +53,39 @@ public class CRUDCommAction extends ApplicationSupport {
 	@Override
 	public void validate() {
 		System.out.println("méthode validate() CRUDAction");
-		System.out.println(titre);
-		System.out.println(commentaire);
-		titre.setIdTitre(commentaire.getIdComm());
-//		titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
-		commentaire.setTitre(titre);
-		System.out.println(commentaire);
+		System.out.println("validate() id : " + id);
+		System.out.println("validate() titre : " + titre);
+		System.out.println("validate() commentaire : " + commentaire);
+//		commentaire.getTitre().setIdTitre(commentaire.getIdComm());
+//				titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
+//				commentaire.setTitre(titre);
+		System.out.println("avant if : " + commentaire);
+		if (commentaire.getTitre() == null) {
+//		if (titre.getTxtTitre() == null || commentaire.getTitre().getTxtTitre() == null) {
+//			titre.setTxtTitre("");
+			System.out.println(titre);
+			commentaire.setTitre(titre);
+			System.out.println("1er if : " + commentaire);
+		}
+		if (commentaire.getTitre().getTxtTitre().isEmpty()) { 
+//		if (titre.getTxtTitre().isEmpty()) { 	
+			message = "** Attention, votre commentaire n'a pas de titre !! **";
+			addFieldError("titre.txtTitre", message);
+		}
 		if (commentaire.getIdComm() == 0) {
 			message = "** Attention, votre commentaire n'a pas d'identifiant !! **";
+			addFieldError("commentaire.idComm", message);
+		}
+		if (commentaire.getIdComm() < 0) {
+			message = "** Attention, vous avez saisi un ID inférieur à zéro !! **";
 			addFieldError("commentaire.idComm", message);
 		}
 		if (commentaire.getTexteComm().isEmpty()) { 
 			message = "** Attention, votre commentaire est vide !! **";
 			addFieldError("commentaire.texteComm", message); 
 		}
-		if (commentaire.getTitre().getTxtTitre() == null) {
-			titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
-			commentaire.setTitre(titre);
-		}
-		if (commentaire.getTitre().getTxtTitre().isEmpty()) { 
-			message = "** Attention, votre commentaire n'a pas de titre !! **";
-			addFieldError("titre.txtTitre", message);
-		}
+
+
 	} 
 
 	public String creation() throws Exception {
@@ -93,9 +111,10 @@ public class CRUDCommAction extends ApplicationSupport {
 
 	public String modification() throws Exception {
 		System.out.println("***** méthode modification() CRUDCommAction");
-		titre.setIdTitre(Integer.parseInt(id));
-		titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
-		commentaire.setTitre(titre);
+//		titre.setIdTitre(Integer.parseInt(id));
+//		titre.setTxtTitre(commentaire.getTitre().getTxtTitre());
+//		commentaire.setTitre(titre);
+		System.out.println("***** méthode modification() CRUDCommAction commentaire : " + commentaire);
 		interfaceFacade.modifCommentaire(commentaire);
 		commentaire = null;
 		titre = null;		

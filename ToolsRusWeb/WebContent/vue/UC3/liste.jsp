@@ -47,7 +47,7 @@
 			</s:if>
 			<s:else>
 				<s:iterator value="listeCommentaires">
-					<tr class="text-center"bgcolor="#E6E6E6">
+					<tr class="text-center" bgcolor="#E6E6E6">
 						<td><s:property value="titre.txtTitre" /></td>
 						<td><s:property value="texteComm" /></td>
 						<td><s:property value="getCptLike().compteur" /></td>

@@ -19,7 +19,7 @@
 		<hr />
 	</s:if>				
 
-	<s:url namespace="/uc3" action="creationFormComm" 		var="creaComm"  />
+	<s:url namespace="/uc3" action="creationComm" 		var="creaComm"  />
 
 	<br><br><br><br><br>
 	
@@ -27,7 +27,7 @@
 		<s:form namespace="" action="" method="post">
  			<s:actionerror />
 			<s:textfield type="text" 	name="titre.txtTitre" 			label="Saisir votre titre "  size="50"/>
-			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " size="10"/>
+			<s:textfield type="number" 	name="commentaire.idComm" 		label="L'id du commentaire " size="20"/>
 			<s:textfield type="text" 	name="commentaire.texteComm" 	label="Votre commentaire "   size="50"/>
 			<br><br><br><hr>
 	
@@ -43,13 +43,6 @@
 		</div>
 		<hr>
 	</s:if>
-
-	<s:elseif test="message == 'modifié'">
-		<div class="alert alert-info">
-			<p class="centre">Le commentaire est bien <s:property value="message"/> !</p>
-		</div>
-		<hr>
-	</s:elseif>
 	<s:elseif test="message != null">
 		<div class="alert alert-danger">
 			<p class="centre"><s:property value="message"/></p>
