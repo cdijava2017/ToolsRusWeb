@@ -5,8 +5,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import clientServer.uc4.IFacService;
-import entity.uc4.Mot;
-import entity.uc4.MotHumeur;
+import entity.uc4.Mots;
 import utils.uc4.Parametre;
 import webapp.ApplicationSupport;
 
@@ -22,6 +21,9 @@ public class ListMot extends ApplicationSupport {
 
 	private String mot;
 	private String msgRetour;
+	
+	private Mots listMot = new Mots();
+
 
 	public static void init() {
 		try {
@@ -34,19 +36,20 @@ public class ListMot extends ApplicationSupport {
 		}
 	}
 
+	@Override
 	public String execute() {
 
 		init();
-		System.out.println("****cudmot_creation" + mot);
-		Mot motAjout = new MotHumeur();
-		motAjout.setLibelleMot(mot);
+		System.out.println("****listMot_lister");
+		
+		
 		try {
-			serviceFacade.ajouter(motAjout);
+			setListMot(serviceFacade.listAllMot());
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		msgRetour= "mot créé";
+		
 		return SUCCESS;
 	}
 
@@ -66,6 +69,14 @@ public class ListMot extends ApplicationSupport {
 
 	public void setMsgRetour(String msgRetour) {
 		this.msgRetour = msgRetour;
+	}
+
+	public Mots getListMot() {
+		return listMot;
+	}
+
+	public void setListMot(Mots listMot) {
+		this.listMot = listMot;
 	}
 
 }

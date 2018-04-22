@@ -13,23 +13,23 @@
 			<jsp:include page="/WEB-INF/include/NavBar.jsp"></jsp:include>
 		<div class="container">
 		  <div class="table-responsive">          
-		  <table class="table">
-		    <thead>
-		      <tr>
-		        <th>choix</th>
-		        <th>libelle du mot</th>
-		        <th>catégorie</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      <tr>
-		        
-		        <td><s:checkbox name="choix" class="check" theme="simple"/></td>
-		        <td><s:property value="mot"/>content</td>
-		        <td><s:property value="categorie"/>humeur</td>
-		      </tr>
-		    </tbody>
-		  </table>
+			  <table class="table">
+			    <thead>
+			      <tr>
+			        <th>choix</th>
+			        <th>libelle du mot</th>
+			        <th>catégorie</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr> 
+			        <td><s:checkbox name="choix" class="check" theme="simple"/></td>
+			        <s:iterator value="listMot"/>
+			        <td><s:property value="libelleMot"/></td>
+			        <td><s:property value="categorie"/>humeur</td>
+			      </tr>
+			    </tbody>
+			  </table>
 		  </div>
 		
 		<div>

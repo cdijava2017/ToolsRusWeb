@@ -21,9 +21,7 @@ public abstract class Mot implements Serializable {
 	
 	private int 	idMot;
 	
-	
 	private String 	libelleMot;
-	
 	
 	private Image 	image;
 	

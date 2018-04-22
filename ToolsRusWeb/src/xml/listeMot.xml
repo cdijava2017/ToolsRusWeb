@@ -6,11 +6,11 @@
 		<struts>
 			<constant name="struts.devMode" value="false" />
 		
-		<package name="ToolsMot" namespace="/uc4suppmot" extends="struts-default">
+		<package name="ToolsMot" namespace="/uc4listmot" extends="struts-default">
 			<default-action-ref name="accueilUc4" />
 		
-			<action name="suppmot" class="webapp.uc4.CudMot">
-				<result>/vue/uc4/formulaireUc4.jsp</result>
+			<action name="listmot" class="webapp.uc4.ListMot">
+				<result>/vue/uc4/listMot.jsp</result>
 			</action>
 		
 		</package>
