@@ -65,7 +65,7 @@ public class MotHumeur extends Mot implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MotHumeur [idHumeur=" + idHumeur + ", libelleHumeur=" + libelleHumeur + "]";
+		return "MotHumeur [idHumeur=" + getIdMot() + ", libelleHumeur=" + getLibelleMot() + "]";
 	}
 	
 	

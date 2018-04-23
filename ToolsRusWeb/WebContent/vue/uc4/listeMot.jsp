@@ -22,12 +22,15 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			      <tr> 
-			        <td><s:checkbox name="choix" class="check" theme="simple"/></td>
-			        <s:iterator value="listMot"/>
-			        <td><s:property value="libelleMot"/></td>
-			        <td><s:property value="categorie"/>humeur</td>
-			      </tr>
+			       
+			      	<s:iterator value="listMot">
+				      	<tr id="<s:property value="idMot"/>">
+					        <td><s:checkbox name="choix" id="{idMot}" theme="simple"/></td>
+					        <td><s:property value="libelleMot"/></td>
+					        <td><s:property value="categorie"/>humeur</td>
+					    </tr>
+				    </s:iterator>
+			      
 			    </tbody>
 			  </table>
 		  </div>

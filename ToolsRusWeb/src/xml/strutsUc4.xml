@@ -6,6 +6,7 @@
 	<constant name="struts.devMode" value="true" />
 	
 	<include file="/xml/mot.xml"/>
+	<include file="/xml/listeMot.xml"/>
 	
 	<package name="ToolsRusWeb" namespace="/uc4" extends="struts-default">
 		<default-action-ref name="accueilUc4" />
@@ -25,10 +26,6 @@
 		
 		<action name="formulaireImageUc4">
 			<result>/vue/uc4/TODO.jsp</result>
-		</action>
-		
-		<action name="listeMotUc4">
-			<result>/vue/uc4/listeMot.jsp</result>
 		</action>
 		
 		<action name="listeImageUc4">

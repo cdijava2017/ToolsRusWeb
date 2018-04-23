@@ -30,7 +30,7 @@
 		</div>
 		<br>
 		<div class="container"> 
-			<s:a namespace="/uc4" action="listeMotUc4">         
+			<s:a namespace="/uc4listmot" action="listmot">         
 	  		<button type="button" class="btn btn-info btn-block">LISTE DES MOTS</button>
 	  		</s:a>
 		</div>

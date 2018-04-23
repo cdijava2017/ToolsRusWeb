@@ -4,13 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 		<struts>
-			<constant name="struts.devMode" value="false" />
-		
-		<package name="ToolsMot" namespace="/uc4listmot" extends="struts-default">
-			<default-action-ref name="accueilUc4" />
-		
+				
+		<package name="ToolsListeMot" namespace="/uc4listmot" extends="struts-default">
+					
 			<action name="listmot" class="webapp.uc4.ListMot">
-				<result>/vue/uc4/listMot.jsp</result>
+				<result>/vue/uc4/listeMot.jsp</result>
 			</action>
 		
 		</package>

@@ -19,10 +19,7 @@ public class ListMot extends ApplicationSupport {
 	private static Context context;
 	private static IFacService serviceFacade;
 
-	private String mot;
-	private String msgRetour;
-	
-	private Mots listMot = new Mots();
+	private Mots 	listMot;
 
 
 	public static void init() {
@@ -44,7 +41,8 @@ public class ListMot extends ApplicationSupport {
 		
 		
 		try {
-			setListMot(serviceFacade.listAllMot());
+			listMot = serviceFacade.listAllMot();
+			
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -54,22 +52,6 @@ public class ListMot extends ApplicationSupport {
 	}
 
 
-
-	public String getMot() {
-		return mot;
-	}
-
-	public void setMot(String mot) {
-		this.mot = mot;
-	}
-
-	public String getMsgRetour() {
-		return msgRetour;
-	}
-
-	public void setMsgRetour(String msgRetour) {
-		this.msgRetour = msgRetour;
-	}
 
 	public Mots getListMot() {
 		return listMot;
