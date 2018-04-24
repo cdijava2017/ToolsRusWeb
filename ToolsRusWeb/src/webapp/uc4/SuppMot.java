@@ -20,7 +20,7 @@ public class SuppMot extends ApplicationSupport{
 	private static Context context;
 	private static IFacService serviceFacade;
 	
-	private String mot;
+	private int idMot;
 	private String msgRetour;
 	
 	public static void init() {
@@ -37,11 +37,11 @@ public class SuppMot extends ApplicationSupport{
 	public String execute() {
 			
 			init();
-			System.out.println("****suppmot_execute" + mot);
-			Mot motAjout = new MotHumeur();
-			motAjout.setLibelleMot(mot);
+			System.out.println("****suppmot_execute" + idMot);
+			Mot motSupp = new MotHumeur();
+			motSupp.getIdMot();
 			try {
-				serviceFacade.supprimer(motAjout);
+				serviceFacade.supprimer(motSupp);
 			} catch (Exception e) {
 				
 				e.printStackTrace();
@@ -50,12 +50,12 @@ public class SuppMot extends ApplicationSupport{
 			return SUCCESS;
 		}
 
-	public String getMot() {
-		return mot;
+	public int getIdMot() {
+		return idMot;
 	}
 
-	public void setMot(String mot) {
-		this.mot = mot;
+	public void setMot(int idMot) {
+		this.idMot = idMot;
 	}
 
 	public String getMsgRetour() {

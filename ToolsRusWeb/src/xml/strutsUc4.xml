@@ -7,6 +7,7 @@
 	
 	<include file="/xml/mot.xml"/>
 	<include file="/xml/listeMot.xml"/>
+	<include file="/xml/suppMot.xml"/>
 	
 	<package name="ToolsRusWeb" namespace="/uc4" extends="struts-default">
 		<default-action-ref name="accueilUc4" />
