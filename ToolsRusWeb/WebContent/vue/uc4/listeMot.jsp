@@ -25,8 +25,7 @@
 				    </thead>
 				    <tbody>
 				       
-				      	<s:iterator value="listMot">
-				      		
+				      	<s:iterator value="listMot">	
 					      	<tr id="<s:property value="idMot"/>">
 						        <td><s:checkbox name="choix" id="{idMot}" theme="simple" value=""/></td>
 						        <td><s:property value="libelleMot"/></td>
